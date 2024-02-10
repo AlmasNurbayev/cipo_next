@@ -27,8 +27,8 @@ export default function FilterClient() {
 
   useEffect(() => {
     async function loadLists() {
-      const lists: any = await cipoFilterList();
-      setLists(lists);
+      const res = await cipoFilterList();
+      if (res.data) setLists(res.data);
     }
     loadLists();
   }, []);
@@ -38,6 +38,7 @@ export default function FilterClient() {
     searchParams.set('size', size.join('-'));
     searchParams.set('take', take);
     router.push(`${pathname}?${searchParams.toString()}`);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pg, take, size]);
 
   function handleQ(event: React.ChangeEvent<HTMLInputElement>) {

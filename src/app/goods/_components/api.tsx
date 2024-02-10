@@ -31,9 +31,11 @@ export async function cipoListGoods(params: {
 export async function cipoFilterList() {
   // on client
   const url = config.NEXT_PUBLIC_backendUrl + '/api/productsFilter';
-  const res = await fetch(url, { next: { revalidate: 60 } }).then((res) =>
-    res.json()
-  );
-  console.log('cipoFilterList', res);
-  return res;
-}
+  const res = await fetch(url, { next: { revalidate: 60 } });
+  if (res.status === 200) {
+    const data = await res.json()
+    return {status: res.status, statusText: res.statusText, data, url};
+  } else {
+    Logger.error(getErrorData(res));
+    throw new Error('не удалось получить данные ' + url);
+  }}
