@@ -32,6 +32,7 @@ export default async function Home() {
       </div>
       <h1><Link href='/posts_server/'>Posts_server</Link></h1>
       <h1><Link href='/posts_mix/'>Posts_mix</Link></h1>
+      <h1><Link href='/goods/'>Goods</Link></h1>
     </main>
   );
 }

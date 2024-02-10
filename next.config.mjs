@@ -12,7 +12,19 @@ const nextConfig = {
         hostname: '45.146.167.130',
         pathname: '/product_images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.dummyjson.com',
+        pathname: '**',
+      },
+      
     ],
+  },
+  // ниже настройка нужна для корректной работы winston
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+
+    return config;
   },
 };
 

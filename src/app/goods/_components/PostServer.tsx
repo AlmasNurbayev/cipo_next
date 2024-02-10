@@ -1,10 +1,10 @@
+import { config } from '@/config/constants';
 import Image from 'next/image';
 
-export default function PostServer({item}: {item: any}) {
+export default function PostServer({ item }: { item: any }) {
   return (
     <div
       id="item_container"
-      key={item.id}
       style={{
         // border: '1px solid black',
         display: 'flex',
@@ -16,27 +16,29 @@ export default function PostServer({item}: {item: any}) {
         <div
           id="image_container"
           style={{
-            padding: '10px',
+            width: '100px',
+            height: '100px',
+            paddingRight: '10px',
           }}
         >
           <Image
-            src={item.thumbnail}
-            alt={item.title}
+            src={config.backendUrl + '/' + item.image_active_path}
+            alt={item.name}
             width={'100'}
             height={'100'}
             style={{
               objectFit: 'cover',
-              borderRadius: '10px',
+              padding: '10px'
             }}
           ></Image>
         </div>
-        <h2>{item.title}</h2>
-      </div>
-      <div>
-        <b>description:</b> {item.description}
-      </div>
-      <div>
-        <b>rating: </b> {item.rating}
+        <div>
+          <h3>{item.name}</h3>
+          <br/>
+          <b>artikul:</b> {item.artikul}
+          <br/>
+          <b>vid_modeli_name: </b> {item.vid_modeli_name}
+        </div>
       </div>
     </div>
   );

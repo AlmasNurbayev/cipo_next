@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 export default function PostServer({item}: {item: any}) {
   return (
@@ -15,21 +16,19 @@ export default function PostServer({item}: {item: any}) {
         <div
           id="image_container"
           style={{
-            width: '100px',
-            height: '100px',
-            paddingRight: '10px',
+            padding: '10px',
           }}
         >
-          <img
+          <Image
             src={item.thumbnail}
             alt={item.title}
+            width={'100'}
+            height={'100'}
             style={{
               objectFit: 'cover',
-              width: '100%',
-              height: '100%',
               borderRadius: '10px',
             }}
-          ></img>
+          ></Image>
         </div>
         <h2>{item.title}</h2>
       </div>

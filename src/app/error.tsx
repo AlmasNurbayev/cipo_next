@@ -10,8 +10,9 @@ export default function Error({
 {
  
   return (
-    <div>
-      <h2>Something went wrong!</h2>
+    <div className="error_page">
+      <h2 style={{color: 'red'}}>Что-то пошло не так(((</h2>
+      <br></br>
       {error.message}
     </div>
   )

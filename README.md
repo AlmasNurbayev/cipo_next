@@ -7,7 +7,14 @@
 
 Выполнено:
 - полностью серверная страница с фильтрами - posts_server. Причем форма фильтров каким-то образом обновляет searhParams при submit, хотя такого действия нет.
-- серверная страница, но клиентские фильтры - posts_mix. Передача данных от клиента на сервер происходит через SearchParams и router.push
+- серверная страница, но внутри нее фильтры в клиентском компоненте - posts_mix. Передача данных от клиента на сервер происходит через SearchParams и router.push
+- серверная страница, но внутри нее фильтры в клиентском компоненте - goods. Разница с предыдущим варианте, что используется реальный API и более сложные фильтры с массивами
+
+Стандарты:
+- дата - new Date().toLocaleString('ru-RU'),
+
+
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
