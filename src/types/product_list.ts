@@ -4,7 +4,7 @@ export interface IproductList {
   current_count: number
 }
 
-interface IproductOnce {
+export interface IproductOnce {
   product_id: number;
   product_create_date: string;
   sum: number;

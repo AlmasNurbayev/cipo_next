@@ -1,0 +1,43 @@
+.wrapper {
+  padding: 10px;
+}
+
+.thumbs_wrapper {
+  padding-top: 10px;
+  overflow-x:auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.thumbs_item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.main_view {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.left_button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-image: url('/reshot-icon-arrow-left.svg');
+  z-index:  100;
+}
+
+.right_button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-image: url('/reshot-icon-arrow-right.svg');
+  z-index:  100;
+}

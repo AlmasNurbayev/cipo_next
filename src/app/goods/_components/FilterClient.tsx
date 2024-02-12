@@ -4,7 +4,7 @@ import Button from '@/app/_components/Button';
 import Input from '@/app/_components/Input';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { cipoFilterList } from './api';
+import { cipoFilterList } from '../../../api/cipo.api';
 
 export default function FilterClient() {
   //const searchParams = useSearchParams();

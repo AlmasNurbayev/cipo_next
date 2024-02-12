@@ -1,7 +1,9 @@
 import { config } from '@/config/constants';
+import { IproductOnce } from '@/types/product_list';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function PostServer({ item }: { item: any }) {
+export default function PostServer({ item }: { item: IproductOnce} ) {
   return (
     <div
       id="item_container"
@@ -38,6 +40,8 @@ export default function PostServer({ item }: { item: any }) {
           <b>artikul:</b> {item.artikul}
           <br/>
           <b>vid_modeli_name: </b> {item.vid_modeli_name}
+          <Link href={'/goods/'+ item.product_id}>Подробнее</Link>
+          
         </div>
       </div>
     </div>

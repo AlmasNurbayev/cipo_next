@@ -1,6 +1,7 @@
 import PostServer from './_components/PostServer';
 import FilterClient from './_components/FilterClient';
-import { cipoListGoods } from './_components/api';
+import { cipoListGoods } from '../../api/cipo.api';
+import { IproductList } from '@/types/product_list';
 
 export default async function Page({
   searchParams,
@@ -15,9 +16,9 @@ export default async function Page({
 }) {
   if (!searchParams.take) searchParams.take = '10'; // default
 
-  let posts = [];
+  let posts: IproductList["data"] = [];
   const res = await cipoListGoods(searchParams);
-  if (res.data) posts = res.data;
+  if (res.data) posts = res.data.data;
   
   return (
     <div className="goods">
@@ -30,8 +31,8 @@ export default async function Page({
             <h2>Список на сервере:</h2>
             <div>{new Date().toLocaleString()}</div>
             <div>{posts.length}</div>
-            {posts.map((item: any) => (
-              <PostServer key={item.product_id + item.qnt_price} item={item} />
+            {posts.map((item) => (
+              <PostServer key={item.product_id + item.product_name} item={item} />
             ))}
           </div>
           <div className="rigth">

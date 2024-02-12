@@ -1,18 +1,26 @@
+import { cipoGetNews } from '@/api/cipo.api';
 import { config } from '@/config/constants';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import 'server-only'
 
-async function genNewsById(id: string) {
-  const res = fetch(`${config.backendUrl}/api/newsID?id=${id}`)
-    .then((res) => res.json())
-    .catch((err) => {
-      throw new Error(err.message);
-    });
-  return res;
+type Props = {
+  params: { id: string }
+  // searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const product = (await cipoGetNews(params.id)).data
+  return {
+    title: 'Новости / ' + product.title,
+  }
 }
 
 export default async function page({ params }: { params: { id: string } }) {
-  const news: any = await genNewsById(params.id);
+  const news = (await cipoGetNews(params.id)).data;
   return (
     <div className="main">
       <div>id : {params.id}</div>
