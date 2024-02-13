@@ -73,12 +73,7 @@ export default function ImageSlider({
         />
       </div>
 
-      <div
-        className="thumbs_wrapper"
-        style={{
-          width: (thumbsWidth + 10) * (data.length + 1),
-        }}
-      >
+      <div className="thumbs_wrapper">
         {data.map((item, index) => (
           <Image
             key={item.full_name}

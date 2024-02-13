@@ -1,6 +1,4 @@
 import { config } from '@/config/constants';
-import { getErrorData } from '@/shared/helpers';
-import { Logger } from '@/shared/logger';
 import { handleResponse } from './handle.api';
 import { Inews } from '@/types/news';
 import { Istore } from '@/types/store';
@@ -69,6 +67,11 @@ export async function cipoProductNews() {
   // on client
   const url = config.NEXT_PUBLIC_backendUrl + '/api/productsNews?news=10';
   const res = await fetch(url, { next: { revalidate: 60 } });
-  return await handleResponse<IproductNew[]>(res, url);
+  // бэкенд отдает не точное кол-во продуктов, а после группировки.
+  // поэтому запрашиваем больше и отдаем сколько надо
+  // TODO - на бэкенде изменить алгоритм 
+  const manyProducts = await handleResponse<IproductNew[]>(res, url);
+  manyProducts.data = manyProducts.data.slice(0, 6);
+  return manyProducts;
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Input({
   onTyped,
@@ -9,29 +10,31 @@ export default function Input({
   height,
   margin,
   padding,
-  placeholder
+  placeholder,
+  style,
 }: {
-  onTyped: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onTyped?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   placeholder?: string;
   type: string;
-  value: any;
+  value?: any;
   width?: number;
   height?: number;
   margin?: number;
   padding?: number;
+  style?: React.CSSProperties;
 }) {
   return (
-    <input
-      className={'Input'}
-      placeholder={placeholder}
-      name={name}
-      type={type}
-      value={value}
-      style={{ width, height, margin, padding }}
-      onChange={onTyped}
-    >
-      {/* <button>X</button> */}
-    </input>
+    
+      <input
+        className='Input_wrapper' style={{...style, width, height, margin, padding }}
+        placeholder={placeholder}
+        name={name}
+        type={type}
+        value={value}
+
+        onChange={onTyped}
+      />
+    
   );
 }

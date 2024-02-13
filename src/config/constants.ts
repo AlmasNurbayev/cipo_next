@@ -4,5 +4,9 @@ export const config = {
   seo: {
     no_index_page: { robots: { index: false, follow: false} },
     site_name: 'CIPO.kz - правильная детская обувь',
+  },
+  defaultStyle: {
+    borderColor: '#B7B7B7',
   }
+
 }

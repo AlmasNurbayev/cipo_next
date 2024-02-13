@@ -11,7 +11,7 @@ export default function Button({
   value,
   style,
 }: {
-  onPress: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onPress?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   active?: boolean;
   children?: React.ReactNode;
   width?: number;
