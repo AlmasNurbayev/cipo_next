@@ -4,6 +4,11 @@
   flex-direction: column;
 
   padding: 0 6rem;
+  @media (max-width: 500px) {
+    & {
+      padding: 0 2rem;
+    }
+  }
   /* justify-content: space-between; */
   /* align-items: center; */
 
@@ -11,9 +16,13 @@
   .banner {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     .right {
+      flex-grow: 5;
+      flex-basis: 400px;
       padding-left: 10px;
+      
 
       .row {
         display: flex;
@@ -33,9 +42,9 @@
     }
 
     .left {
-      position: relative;
-      width: 448px;
-      height: 409px;
+      /* position: relative;
+      width: 448px; */
+      /* height: 409px; */
 
       .image {
         object-fit: scale-down;

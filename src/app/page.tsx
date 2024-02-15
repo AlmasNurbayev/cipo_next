@@ -23,7 +23,9 @@ export default async function Home() {
             className="image"
             src="/main/main_2_central.webp"
             alt="banner"
-            fill
+            width={350}
+            height={300}
+            
           ></Image>
         </div>
         <div className="right">

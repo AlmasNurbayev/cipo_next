@@ -5,15 +5,18 @@
   --max-width: 1100px;
   --foreground-rgb: 0, 0, 0;
   --font-title-size: 20px;
-  --font-main-size: 18px; 
-  --font-small-size: 14px; 
+  --font-main-size: 18px;
+  --font-small-size: 14px;
+  /* !is not used in media */
+  --burger-breakpoint: 800px;
+  /* end */
   font-family: var(--font-robotoFlex), sans-serif;
 
   font-size: var(--font-main-size);
 
-  @media (max-width: 900px) {
-    font-size: 16px;
-    --font-title-size: 18px;
+  @media (max-width: 800px) {
+    font-size: 12px;
+    --font-title-size: 14px;
   }
 }
 
@@ -75,7 +78,6 @@ input {
   padding-bottom: 20px;
 }
 
-
 .error_page {
   padding: 20px;
 }
@@ -94,91 +96,6 @@ input {
 }
 
 
-.header {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-
-  .first_line {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .logo {
-      position: relative;
-      width: 200px;
-      height: 122px;
-    }
-
-    .search_form {
-      display: inline-flex;
-      width: 160px;
-
-      .image_right {
-        border: none;
-        background-color: transparent;
-        order: 1;
-        cursor: pointer;
-        margin-top: 5px;
-        margin-left: -30px;
-        background-image: url('/main/search-svgrepo-com.svg');
-        background-size: contain;
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-
-  .second_line {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    .whatsapp {
-      display: flex;
-      flex-direction: row;
-      cursor: pointer;
-
-      .whatsapp_icon {
-        margin: auto;
-      }
-
-      .whatsapp_text {
-        padding-left: 10px;
-        text-align: center;
-        font-size: var(--font-title-size);
-        text-transform: uppercase;
-        margin: auto;
-      }
-    }
-
-    .menu {
-      padding-left: 20px;
-      display: flex;
-      flex-direction: row;
-      height: 60px;
-
-      .menu_item {
-        /* используем глобальный размер шрифта font-size: 18px; */
-        font-weight: 600;
-        padding: 15px 10px;
-
-        &:hover {
-          background-color: var(--hover-color);
-          color: white;
-        }
-      }
-
-      .active {
-        border-color: transparent;
-        border-bottom: 4px solid var(--main-color);
-      }
-    }
-  }
-}
-
-
 .footer {
   background-color: var(--border-color);
   font-size: var(--font-small-size);
@@ -188,12 +105,9 @@ input {
   justify-content: space-evenly;
   padding: 20px;
 
-
   a {
     text-decoration: underline;
   }
-  
-
 
   .center {
     .social {
@@ -201,17 +115,12 @@ input {
       padding: 10px;
       display: flex;
       gap: 20px;
-
     }
   }
 
   .right {
     text-align: right;
     line-height: 1.5;
-
-
-
-
   }
 }
 
@@ -240,9 +149,11 @@ input {
   border-color: var(--main-color);
   border-radius: 5px;
   padding: 3px;
+  width: 100%;
   border-style: 1px solid;
-  font-family: var(--font-robotoFlex);
-  padding: 0 10px;
+  font-size: var(--font-main-size);
+
+  /* padding: 0 10px; */
 
   &:focus {
     outline: none;

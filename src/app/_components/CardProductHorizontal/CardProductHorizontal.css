@@ -5,12 +5,14 @@
   box-shadow: 2px 2px 4px lightgray;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
   .right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 0;
+    width: 100%;
 
     .sizes {
       display: flex;

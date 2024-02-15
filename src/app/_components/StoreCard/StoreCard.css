@@ -3,6 +3,7 @@
   /* max-width: 500px; */
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
   .half {
     margin: 0 10px;
@@ -13,6 +14,8 @@
     }
 
     .days {
+      max-width: 40vh;
+
       .day {
         display: flex;
         flex-direction: row;

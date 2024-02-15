@@ -1,0 +1,23 @@
+.Checkbox {
+  padding-left: 0.4rem;   
+  
+  
+
+  .input {
+    width: 1rem;
+    height: 1rem;
+    border: solid 1px black;
+    cursor: pointer; 
+
+    &:checked {
+      accent-color: var(--main-color);
+    }
+    
+  }
+
+  .label {
+    padding-left: 0.4rem;  
+    cursor: pointer; 
+  }
+
+}

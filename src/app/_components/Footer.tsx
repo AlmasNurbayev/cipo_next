@@ -10,12 +10,12 @@ export default function Footer() {
         <p>БИН/ИИН: 800727301256</p>
         <p>Cipo ® - зарегистрированная торговая марка </p>
       </div>
-      <div className="center">
+      <address className="center">
         <b>Контакты</b>
         <div className="social">
           <Link href="https://www.instagram.com/cipo.kz/">
             <Image
-              src="/components/footer_instagram_ico.png"
+              src="/components/footer/footer_instagram_ico.png"
               width={30}
               height={30}
               alt="Instagram"
@@ -24,7 +24,7 @@ export default function Footer() {
 
           <Link href="https://wa.me/77788121260">
             <Image
-              src="/components/footer_whatsapp_ico.png"
+              src="/components/footer/footer_whatsapp_ico.png"
               width={30}
               height={30}
               alt="Instagram"
@@ -32,7 +32,7 @@ export default function Footer() {
           </Link>
           <Link href="mailto:info@cipo.kz">
             <Image
-              src="/components/footer_email_ico.png"
+              src="/components/footer/footer_email_ico.png"
               width={30}
               height={30}
               alt="Instagram"
@@ -40,7 +40,7 @@ export default function Footer() {
           </Link>
         </div>
         <Link href="tel:+77788121260">+7 778 8121260</Link>
-      </div>
+      </address>
       <div className="right">
         {/* TODO */}
         <div>

@@ -6,6 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { cipoFilterList } from '../../../api/cipo.api';
 import '../page.css';
+import Checkbox from '@/app/_components/Checkbox/Checkbox';
 
 export default function FilterClient() {
   //const searchParams = useSearchParams();
@@ -33,10 +34,17 @@ export default function FilterClient() {
   }, []);
 
   useEffect(() => {
-    if (pg.length > 0) searchParams.set('product_group', pg.join('-'));
-    if (size.length > 0) searchParams.set('size', size.join('-'));
+    if (pg.length > 0) {searchParams.set('product_group', pg.join('-'))} else {
+      searchParams.delete('product_group');
+    } 
+    if (size.length > 0) {
+      searchParams.set('size', size.join('-'));
+    } else {
+      searchParams.delete('size');
+    } 
     searchParams.set('take', take);
-    router.push(`${pathname}?${searchParams.toString()}`);
+    // router.push(`${pathname}?${searchParams.toString()}`);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pg, take, size]);
 
@@ -47,8 +55,10 @@ export default function FilterClient() {
     router.push(`${pathname}?${searchParams.toString()}`);
   }
 
-  function handleProductGroup(event: React.MouseEvent<HTMLButtonElement>) {
-    const value = event.currentTarget.value;
+  function handleProductGroup(value: any) {
+    // const value = event.currentTarget.value;
+    console.log(value);
+    
     if (pg.includes(value)) {
       setPg(pg.filter((item) => item !== value));
     } else {
@@ -81,21 +91,28 @@ export default function FilterClient() {
             placeholder="поиск..."
           ></Input>
 
-          <fieldset>
+          <fieldset className="sezons">
             Сезоны{pg.length === 0 ? ': все' : ''}
             {lists &&
               lists.product_group.map((item: any) => (
-                <Button
-                  key={item.id}
-                  active={pg.includes(String(item.id))}
-                  width={200}
-                  height={30}
-                  margin={5}
-                  value={String(item.id)}
+                <Checkbox
+                  key={'checkbox sezons' + item.id}
+                  label={item.name_1c}
+                  checked={pg.includes(String(item.id))}
                   onPress={(e) => handleProductGroup(e)}
-                >
-                  {item.name_1c}
-                </Button>
+                  value={String(item.id)}
+                ></Checkbox>
+                // <Button
+                //   key={item.id}
+                //   active={pg.includes(String(item.id))}
+                //   width={200}
+                //   height={30}
+                //   margin={5}
+                //   value={String(item.id)}
+                //   onPress={(e) => handleProductGroup(e)}
+                // >
+                //   {item.name_1c}
+                // </Button>
               ))}
           </fieldset>
 

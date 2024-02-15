@@ -33,6 +33,10 @@
     display: flex;
     flex-direction: column;
 
+    .sezons {
+      
+    }
+
     .filter_size {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

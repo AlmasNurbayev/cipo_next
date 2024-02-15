@@ -49,13 +49,13 @@ export default function ImageSlider({
   return (
     <div
       className="wrapper"
-      style={{
-        width: mainWidth + thumbsWidth + 20,
-        height: mainHeight + thumbsHeight + 20,
-      }}
+      // style={{
+      //   width: mainWidth + thumbsWidth + 20,
+      //   height: mainHeight + thumbsHeight + 20,
+      // }}
     >
-      <div className="main_view" style={{ width: mainWidth, height: mainHeight }}>
-        <div
+      <div className="main_view" >
+        {/* <div
           className="left_button"
           style={currentIndex === 0 ? { display: 'none' } : {}}
           onClick={previousPicture}
@@ -64,12 +64,12 @@ export default function ImageSlider({
           className="right_button"
           style={currentIndex === data.length - 1 ? { display: 'none' } : {}}
           onClick={nextPicture}
-        />
+        /> */}
         <Image
           src={config.NEXT_PUBLIC_backendUrl + '/' + data[currentIndex].full_name}
           alt={'item.name'}
-          width={mainWidth}
-          height={mainHeight}
+          fill
+          className='image'
         />
       </div>
 

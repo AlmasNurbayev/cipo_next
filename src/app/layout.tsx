@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Roboto_Flex } from 'next/font/google';
 import './globals.css';
 import Footer from './_components/Footer';
-import Header from './_components/Header';
+import Header from './_components/Header/Header';
 
 const robotoFlex = Roboto_Flex({
   subsets: ['cyrillic', 'latin'],

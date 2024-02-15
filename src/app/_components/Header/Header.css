@@ -1,0 +1,88 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .first_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .logo {
+      position: relative;
+      width: 200px;
+      height: 122px;
+
+      @media (max-width: 500px) {
+        & {
+          position: relative;
+          width: 100px;
+          height: 61px;
+        }
+      }
+    }
+
+    .search_form {
+      display: inline-flex;
+      width: 210px;
+      padding-right: 10px;
+
+      @media (max-width: 500px) {
+        & {
+          width: 150px;
+        }
+      }
+
+      .image_right {
+        border: none;
+        background-color: transparent;
+        order: 1;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-left: -20px;
+        background-image: url('/main/search-svgrepo-com.svg');
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .second_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .whatsapp {
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+
+
+      .whatsapp_icon {
+        position: relative;
+        margin: auto;
+        width: 40px;
+        height: 40px;
+
+        @media (max-width: 500px) {
+          & {
+            position: relative;
+            width: 30px;
+            height: 30px;
+          }
+        }
+  
+      }
+
+      .whatsapp_text {
+        padding-left: 10px;
+        text-align: center;
+        font-size: var(--font-title-size);
+        text-transform: uppercase;
+        margin: auto;
+      }
+    }
+  }
+}
