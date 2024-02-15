@@ -19,9 +19,9 @@ export default async function page({ params }: { params: { id: string } }) {
   const product = (await cipoGetProduct(params.id)).data;
 
   return (
-    <div className="main">
+    <main className="main">
       <div>id : {params.id}</div>
-      <div>name: {product.name}</div>
+      <h1>name: {product.name}</h1>
       <ImageSlider
         data={product.image_registry}
         thumbsWidth={70}
@@ -35,6 +35,6 @@ export default async function page({ params }: { params: { id: string } }) {
         height={300}
         alt={news.title}
       /> */}
-    </div>
+    </main>
   );
 }

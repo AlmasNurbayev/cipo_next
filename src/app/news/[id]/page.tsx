@@ -21,9 +21,9 @@ export async function generateMetadata(
 export default async function page({ params }: { params: { id: string } }) {
   const news = (await cipoGetNews(params.id)).data;
   return (
-    <div className="main">
+    <main className="main">
       <div>id : {params.id}</div>
-      <div>title: {news.title}</div>
+      <h1>title: {news.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: news.data}}></div>
       <Image
         src={config.backendUrl + '/' + news.image_path}
@@ -31,6 +31,6 @@ export default async function page({ params }: { params: { id: string } }) {
         height={300}
         alt={news.title}
       />
-    </div>
+    </main>
   );
 }

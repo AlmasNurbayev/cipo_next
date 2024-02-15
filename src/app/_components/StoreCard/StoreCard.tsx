@@ -73,7 +73,7 @@ export default function StoreCard({ item }: { item: Istore }) {
         {item.link_2gis && (
           <div className="button_container">
             <Link href={item.link_2gis}>
-              <Button width={300} height={50}>
+              <Button width={200} height={50}>
                 <span className="menu_catalog">Открыть в 2gis</span>
               </Button>
             </Link>

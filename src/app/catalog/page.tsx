@@ -2,6 +2,7 @@ import PostServer from './_components/PostServer';
 import FilterClient from './_components/FilterClient';
 import { cipoListGoods } from '../../api/cipo.api';
 import { IproductList } from '@/types/product_list';
+import './page.css'
 
 export default async function Page({
   searchParams,
@@ -21,8 +22,14 @@ export default async function Page({
   if (res.data) posts = res.data.data;
   
   return (
-    <div className="goods">
-      <div className="top">
+    <main className="goods">
+      <div className="left">
+        <FilterClient/>
+      </div>
+      <div className="right">
+
+      </div>
+      {/* <div className="top">
         <div className="pagination">
           pagination
         </div>
@@ -40,7 +47,7 @@ export default async function Page({
             <FilterClient />
           </div>
         </div>
-      </div>
-    </div>
+      </div> */}
+    </main>
   );
 }

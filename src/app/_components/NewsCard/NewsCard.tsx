@@ -15,8 +15,8 @@ export default function NewsCard({ item }: { item: Inews }) {
           <Image
             src={config.backendUrl + '/' + item.image_path}
             alt={item.title}
-            width={250}
-            height={250}
+            width={200}
+            height={200}
           ></Image>
         </div>
         <div className="down">

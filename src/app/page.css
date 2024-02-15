@@ -1,0 +1,122 @@
+/* main page styles */
+.main {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 6rem;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+
+  /* min-height: 100vh; */
+  .banner {
+    display: flex;
+    flex-direction: row;
+
+    .right {
+      padding-left: 10px;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .text_column {
+          justify-content: space-between;
+          padding: 0 5px;
+          text-align: center;
+          font-size: var(--font-title-size);
+          text-transform: uppercase;
+          color: var(--hover-color);
+          flex: 1;
+        }
+      }
+    }
+
+    .left {
+      position: relative;
+      width: 448px;
+      height: 409px;
+
+      .image {
+        object-fit: scale-down;
+      }
+
+    }
+  }
+
+  .new_products {
+    text-align: center;
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
+    }
+
+    .button_wrapper {
+      padding-top: 20px;
+      padding-right: 10px;
+      text-align: end;
+    }
+  }
+
+  .news {
+    text-align: center;
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
+    }
+  }
+
+  .stores {
+    text-align: center;
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
+    }
+  }
+
+  .about {
+    text-align: center;
+    padding-bottom: 30px;
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
+
+      .left {
+        width: 350px;
+        height: 310px;
+        position: relative;
+
+        .image {
+          object-fit: scale-down;
+        }
+      }
+
+      .right {
+        max-width: 50vh;
+        text-align: justify;
+        text-indent: 30px;
+
+        p {
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+
+}

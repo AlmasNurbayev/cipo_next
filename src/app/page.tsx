@@ -4,11 +4,11 @@ import { Istore } from '@/types/store';
 import { Inews } from '@/types/news';
 import { IproductNew } from '@/types/productsNews';
 import Image from 'next/image';
-import { config } from '@/config/constants';
 import CardProductHorizontal from './_components/CardProductHorizontal/CardProductHorizontal';
 import Button from './_components/Button';
 import NewsCard from './_components/NewsCard/NewsCard';
 import StoreCard from './_components/StoreCard/StoreCard';
+import './page.css'
 
 export default async function Home() {
   const news = (await cipoListNews()).data;
@@ -48,7 +48,7 @@ export default async function Home() {
               ></Image>
             </div>
             <div className="text_column">
-              Обувь под нашим брендом Cipo разрабОТАНА с учетом нашего опыта и климата
+              Обувь под нашим брендом Cipo разработана с учетом нашего опыта и климата
             </div>
           </div>
 
@@ -70,13 +70,18 @@ export default async function Home() {
       <div className="new_products">
         <div className="title_section">Новинки</div>
         <div className="wrapper">
-          {newProducts.map((item: IproductNew) => (
-            <CardProductHorizontal key={'new_products' + item.product_id} item={item} />
+          {newProducts.map((item: IproductNew, index) => (
+            <Link
+              key={'new_products link' + index + item.product_id}
+              href={'/catalog/' + item.product_id}
+            >
+              <CardProductHorizontal key={'new_products ' + index + item.product_id} item={item} />
+            </Link>
           ))}
         </div>
         <div className="button_wrapper">
           <Link href="/catalog">
-            <Button width={300} height={50}>
+            <Button width={200} height={50}>
               <span className="menu_catalog">Перейти в каталог</span>
             </Button>
           </Link>
@@ -105,21 +110,22 @@ export default async function Home() {
         <div className="title_section">О нас</div>
         <div className="wrapper">
           <div className="left">
-            <Image src="/main/anelya.webp" alt="Анэля" fill></Image>
+            <Image src="/main/anelya.webp" alt="Анэля" fill className='image'></Image>
           </div>
           <div className="right">
             <span>
               <p>
-                Для своих детей всегда было сложно найти качественную обувь и
-                каждый сезон такой поиск был стрессом. Часто мне приходила в голову идея помочь родителям в этой
-                проблеме. В 2020 году я решилась на открытие своей торговой точки.
+                Для своих детей всегда было сложно найти качественную обувь и каждый сезон
+                такой поиск был стрессом. Моя миссия - помочь родителям с этим.
               </p>
               <p>
-                По мере накопления опыта стало понятно, что многие модели от поставщиков не устраивали
-                качеством, многие - не подходящими под нашу погоду материалами. А с
-                дизайном обуви вообще беда (если мы не говорим про премиальные бренды, не
-                доступные основному населению). И в 2022 году я перешла на производство
-                обуви по своим моделям.
+                Многие модели от известных производителей
+                не устраивали качеством, многие - не подходили под нашу погоду
+                материалами. А с дизайном обуви вообще беда (если мы не говорим про
+                премиальные бренды, не доступные основному населению). Поэтому мы разрабатываем свои модели - адаптированные под наши условия. 
+              </p>
+              <p>
+                Мы - социально ориентированный бренд, предоставляем скидки многодетным родителям и особенным детям. 
               </p>
             </span>
           </div>
@@ -131,7 +137,6 @@ export default async function Home() {
       <h2>
         <Link href="/posts_mix/">Posts_mix</Link>
       </h2>
-
     </main>
   );
 }
