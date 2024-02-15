@@ -1,0 +1,28 @@
+.StoreCard {
+  min-height: 330px;
+  /* max-width: 500px; */
+  display: flex;
+  flex-direction: row;
+
+  .half {
+    margin: 0 10px;
+
+    .address {
+      text-align: left;
+      max-width: 50vh;
+    }
+
+    .days {
+      .day {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .button_container {
+      padding-top: 15px;
+      text-align: left;
+    }
+  }
+}

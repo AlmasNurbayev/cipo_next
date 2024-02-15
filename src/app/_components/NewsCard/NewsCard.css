@@ -1,0 +1,8 @@
+.NewsCard {
+  width: 250px;
+  min-height: 330px;
+
+  .top {
+    margin-top: 10px;
+  }
+}

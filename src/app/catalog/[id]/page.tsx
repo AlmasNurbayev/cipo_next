@@ -1,8 +1,6 @@
 import { cipoGetProduct } from '@/api/cipo.api';
 import ImageSlider from '@/app/_components/ImageSlider/ImageSlider';
 import { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
 import 'server-only';
 
 type Props = {

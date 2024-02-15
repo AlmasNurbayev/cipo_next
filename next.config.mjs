@@ -14,6 +14,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: '45.146.167.130',
+        pathname: '/store_images/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'cdn.dummyjson.com',
         pathname: '**',
       },

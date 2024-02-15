@@ -2,7 +2,6 @@ import { cipoGetNews } from '@/api/cipo.api';
 import { config } from '@/config/constants';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import React from 'react';
 import 'server-only'
 
 type Props = {

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React, { FormEvent } from 'react';
 import Image from 'next/image';
 import Input from './Input';
 import { config } from '@/config/constants';

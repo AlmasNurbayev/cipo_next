@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { config } from '@/config/constants';
 import CardProductHorizontal from './_components/CardProductHorizontal/CardProductHorizontal';
 import Button from './_components/Button';
+import NewsCard from './_components/NewsCard/NewsCard';
+import StoreCard from './_components/StoreCard/StoreCard';
 
 export default async function Home() {
   const news = (await cipoListNews()).data;
@@ -18,15 +20,15 @@ export default async function Home() {
       <div className="banner">
         <div className="left">
           <Image
+            className="image"
             src="/main/main_2_central.webp"
             alt="banner"
-            layout="fill"
-            objectFit="contain"
+            fill
           ></Image>
         </div>
         <div className="right">
           <div className="row">
-            <div className="right_column">
+            <div>
               <Image
                 src="/main/ico_podbor_color.png"
                 width={100}
@@ -34,10 +36,10 @@ export default async function Home() {
                 alt="подбор"
               ></Image>
             </div>
-            <div className="right_column">Правильно подберем обувь в наших магазинах</div>
+            <div className="text_column">Правильно подберем обувь в наших магазинах</div>
           </div>
           <div className="row">
-            <div className="right_column">
+            <div>
               <Image
                 src="/main/ico_wheather-color.png"
                 width={100}
@@ -45,13 +47,13 @@ export default async function Home() {
                 alt="подбор"
               ></Image>
             </div>
-            <div className="right_column">
+            <div className="text_column">
               Обувь под нашим брендом Cipo разрабОТАНА с учетом нашего опыта и климата
             </div>
           </div>
 
           <div className="row">
-            <div className="right_column">
+            <div>
               <Image
                 src="/main/ico_anatomy_color.png"
                 width={100}
@@ -59,7 +61,7 @@ export default async function Home() {
                 alt="подбор"
               ></Image>
             </div>
-            <div className="right_column">
+            <div className="text_column">
               Мы используем анатомические стельки и натуральные материалы
             </div>
           </div>
@@ -69,7 +71,7 @@ export default async function Home() {
         <div className="title_section">Новинки</div>
         <div className="wrapper">
           {newProducts.map((item: IproductNew) => (
-            <CardProductHorizontal key={'IproductNew' + item.product_id} item={item} />
+            <CardProductHorizontal key={'new_products' + item.product_id} item={item} />
           ))}
         </div>
         <div className="button_wrapper">
@@ -81,65 +83,55 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="news">
-        <div className="title_section">Новости</div>
-        <div className="wrapper"></div>
-      </div>
-
-      <div id="news">
-        <h3>news</h3>
-        <ul>
+      <div id="news" className="news">
+        <div className="title_section">Новости и события</div>
+        <div className="wrapper">
           {news.map((item: Inews) => (
-            <li key={item.id}>
-              <Link href={'/news/' + item.id}>{item.title}</Link>
-            </li>
+            <NewsCard key={'news' + item.id} item={item} />
           ))}
-        </ul>
-      </div>
-      <div id="stores">
-        <h3>stores</h3>
-        <ul>
-          {stores.map((item: Istore) => (
-            <li key={item.id}>
-              <div>
-                <Link href={'/stores/' + item.id}>{item.name_1c}</Link>
-              </div>
-              <div>{item.address}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3>new products</h3>
-        <ul>
-          {newProducts.map((item: IproductNew) => (
-            <li key={item.product_id + JSON.stringify(item.qnt_price)}>
-              {item.product_name}
-              {item.artikul}
-              {item.image_active_path}
-              <Image
-                src={config.backendUrl + '/' + item.image_active_path}
-                width={100}
-                height={100}
-                alt={item.product_name}
-              />
-            </li>
-          ))}
-        </ul>
+        </div>
       </div>
 
+      <div id="stores" className="stores">
+        <div className="title_section">Наши магазины</div>
+        <div className="wrapper">
+          {stores.map((item: Istore) => (
+            <StoreCard key={'stores' + item.id_1c} item={item} />
+          ))}
+        </div>
+      </div>
+
+      <div id="about" className="about">
+        <div className="title_section">О нас</div>
+        <div className="wrapper">
+          <div className="left">
+            <Image src="/main/anelya.webp" alt="Анэля" fill></Image>
+          </div>
+          <div className="right">
+            <span>
+              <p>
+                Для своих детей всегда было сложно найти качественную обувь и
+                каждый сезон такой поиск был стрессом. Часто мне приходила в голову идея помочь родителям в этой
+                проблеме. В 2020 году я решилась на открытие своей торговой точки.
+              </p>
+              <p>
+                По мере накопления опыта стало понятно, что многие модели от поставщиков не устраивали
+                качеством, многие - не подходящими под нашу погоду материалами. А с
+                дизайном обуви вообще беда (если мы не говорим про премиальные бренды, не
+                доступные основному населению). И в 2022 году я перешла на производство
+                обуви по своим моделям.
+              </p>
+            </span>
+          </div>
+        </div>
+      </div>
       <h2>
         <Link href="/posts_server/">Posts_server</Link>
       </h2>
       <h2>
         <Link href="/posts_mix/">Posts_mix</Link>
       </h2>
-      <div id="about">
-        <h2>about</h2>
-      </div>
-      <h2>
-        <Link href="/catalog/">Goods</Link>
-      </h2>
+
     </main>
   );
 }

@@ -16,6 +16,7 @@ export interface Istore {
     d05: string;
     d06: string;
     d07: string;
+    [key: string]: string; 
   };
   registrator_id: number;
   create_date: string;
