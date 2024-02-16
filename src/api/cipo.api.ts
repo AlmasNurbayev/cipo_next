@@ -43,7 +43,7 @@ export async function cipoListStores() {
 
 export async function cipoListNews() {
   // on client
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/news?news=4';
+  const url = config.NEXT_PUBLIC_backendUrl + '/api/news?news=5';
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<Inews[]>(res, url);
 }

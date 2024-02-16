@@ -1,5 +1,5 @@
 .cardProductHorizontal {
-  width: 370px;
+  max-width: 370px;
   height: 190px;
   border: solid var(--border-color) 1px;
   box-shadow: 2px 2px 4px lightgray;
@@ -12,8 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 0;
-    width: 100%;
-
+    
     .sizes {
       display: flex;
       flex-direction: row;
