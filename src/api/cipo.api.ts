@@ -6,9 +6,11 @@ import { IproductNew } from '@/types/productsNews';
 import { IproductsFilter } from '@/types/productsFilter';
 import { IproductList } from '@/types/product_list';
 import { IproductFull } from '@/types/product_full';
+import { Logger } from '@/shared/logger';
 
-export async function cipoListGoods(params?: {[key: string]: string | string[]}) {
+export async function cipoListGoods(params?: { [key: string]: string | string[] | undefined }) {
   // on server
+  // Logger.info(params);
   let stringParams = '';
   for (const param in params) {
     if (params[param] !== undefined && params[param] !== '') {
@@ -20,9 +22,9 @@ export async function cipoListGoods(params?: {[key: string]: string | string[]})
     config.backendUrl +
     '/api/products/' +
     (stringParams !== '' ? '?' + stringParams : '');
-
+    
   const res = await fetch(url, {
-    next: { tags: ['goods'], revalidate: 60 },
+    next: { tags: ['goods'], revalidate: 0 },
   });
   return await handleResponse<IproductList>(res, url);
 }
