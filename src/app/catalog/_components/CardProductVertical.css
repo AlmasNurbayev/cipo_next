@@ -1,0 +1,31 @@
+.CardProductVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  cursor: pointer;
+
+  .top {
+
+  }
+
+  .card-down {
+    text-align: center;
+
+    .card-size {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      padding: 10px 0;
+      justify-content: center;
+
+      .card-sizes {
+        padding-right: 5px;
+      }
+    }
+    
+    .price {
+      font-weight: 800;      
+    }
+  }
+}

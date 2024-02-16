@@ -78,6 +78,16 @@ input {
   padding-bottom: 20px;
 }
 
+.button_title {
+  font-size: var(--font-main-size);
+  font-weight: 800;
+
+  &:hover {
+    background-color: var(--hover-color);
+    color: white;
+  }
+}
+
 .error_page {
   padding: 20px;
 }

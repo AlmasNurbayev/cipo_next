@@ -1,0 +1,23 @@
+.button-page {
+  border-radius: 0;
+  border: solid 1px var(--border-color);
+  cursor: pointer;
+  background-color: transparent;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 10px;
+  font-size: var(--font-main-size);
+  box-shadow: none;
+  outline: none;
+}
+
+.button-page-active {
+  border: solid 2px black;
+
+}
+
+.button-prevnext {
+  width: 4rem;
+  height: 2rem;
+
+}

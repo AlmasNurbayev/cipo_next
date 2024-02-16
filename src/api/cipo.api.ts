@@ -7,7 +7,7 @@ import { IproductsFilter } from '@/types/productsFilter';
 import { IproductList } from '@/types/product_list';
 import { IproductFull } from '@/types/product_full';
 
-export async function cipoListGoods(params?: { [key: string]: string }) {
+export async function cipoListGoods(params: {[key: string]: string | string[]}) {
   // on server
   let stringParams = '';
   for (const param in params) {
@@ -15,7 +15,7 @@ export async function cipoListGoods(params?: { [key: string]: string }) {
       stringParams += `&${param}=${params[param]}`;
     }
   }
-
+ 
   const url =
     config.backendUrl +
     '/api/products/' +

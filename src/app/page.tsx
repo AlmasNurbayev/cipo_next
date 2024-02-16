@@ -84,7 +84,7 @@ export default async function Home() {
         <div className="button_wrapper">
           <Link href="/catalog">
             <Button width={200} height={50}>
-              <span className="menu_catalog">Перейти в каталог</span>
+              <span className="button_title">Перейти в каталог</span>
             </Button>
           </Link>
         </div>

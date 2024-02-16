@@ -15,7 +15,7 @@ export default function Input({
   placeholder?: string;
   type: string;
   value?: any;
-  width?: number;
+  width?: number | string;
   height?: number;
   margin?: number;
   padding?: number;

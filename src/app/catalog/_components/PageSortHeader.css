@@ -1,0 +1,20 @@
+.PageSortHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .count {
+    border: none;
+    display: flex;
+    
+    .count_title {
+      padding: 0 10px;
+    }
+  
+    .select {
+      font-size: var(--font-main-size);
+    }
+  }
+}
+

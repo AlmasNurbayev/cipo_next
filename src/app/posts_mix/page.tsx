@@ -27,7 +27,6 @@ export default async function Page({
 }: {
   searchParams: { q?: string; limit?: string; skip?: string };
 }) {
-  console.log(searchParams);
   if (!searchParams.limit) searchParams.limit = '6'; // default
 
   const posts = await apiDummyGet({

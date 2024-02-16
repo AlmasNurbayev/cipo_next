@@ -8,6 +8,7 @@ export default function Button({
   children,
   value,
   style,
+  type,
 }: {
   onPress?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   active?: boolean;
@@ -17,6 +18,7 @@ export default function Button({
   margin?: number;
   padding?: number;
   value?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   style?: React.CSSProperties;
 }) {
   return (
@@ -25,6 +27,7 @@ export default function Button({
       onClick={onPress}
       style={{...style, width, height, margin, padding}}
       value={value}
+      type={type ? type : 'button'}
     >
       {children}
     </button>
