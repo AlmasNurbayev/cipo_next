@@ -8,7 +8,8 @@ import CardProductHorizontal from '../_components/CardProductHorizontal/CardProd
 import CardProductVertical from './_components/CardProductVertical';
 import Link from 'next/link';
 
-export default async function Page({ searchParams }) {
+// TODO - searchParams - типзировать 
+export default async function Page({ searchParams }: {searchParams: any}) {
   let goods: IproductList['data'] = [];
   const res = await cipoListGoods(searchParams);
 
