@@ -21,7 +21,7 @@ export default function Pagination({
     searchParams.set('page', String(pageNumber));
     searchParams.set('skip', String((pageNumber - 1) * take));
 
-    router.push(`${pathname}?${searchParams}`);
+    router.push(`${pathname}?${searchParams}`, {scroll: false});
   };
 
   return (
@@ -41,6 +41,7 @@ export default function Pagination({
       </button>
 
       <div>
+        {/* TODO - когда мало страниц, например 5, то вырезается одна из центра - 3 */}
         {pagesNumbers.map((page) =>
           page <= 2 ||
           Math.abs(current - page) < 2 ||

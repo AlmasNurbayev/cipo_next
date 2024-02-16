@@ -22,6 +22,11 @@ export default async function Page({ searchParams }) {
       <div className="right">
         <PageSortHeader count={res.data.full_count} />
         <div className="down">
+          {goods.length === 0 ? (
+            <div className="title_section">Нет товаров с заданными условиями</div>
+          ) : (
+            ''
+          )}
           {goods.map((item, index) => (
             // <CardProductHorizontal key={item.product_id + item.product_name} item={item}/>
             // <PostServer key={item.product_id + item.product_name} item={item} />

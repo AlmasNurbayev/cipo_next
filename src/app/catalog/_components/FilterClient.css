@@ -23,6 +23,9 @@
     
       .select {
         font-size: var(--font-main-size);
+        border: none;
+        height: 2rem;
+        width: 100%;
       }
     }
 
@@ -45,6 +48,8 @@
           padding: 5px;
           text-align: center;
           border: solid 1px var(--border-color);
+          white-space: nowrap;
+          overflow: hidden;
         }
 
         .active {

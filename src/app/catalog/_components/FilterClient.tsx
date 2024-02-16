@@ -84,13 +84,11 @@ export default function FilterClient() {
   }, [pg, size, vm, search_name, minPrice, maxPrice, sort]);
 
   function apply() {
-    router.push(`${pathname}?${searchParams}`);
+    router.push(`${pathname}?${searchParams}`, {scroll: false});
   }
 
   function reset() {
-
-    router.push(`${pathname}?page=1&skip=0&take=20`);
-    location.reload();
+    location.replace(`${pathname}?page=1&skip=0&take=20`);
   }
 
   function handleQ(event: React.ChangeEvent<HTMLInputElement>) {
@@ -179,8 +177,8 @@ export default function FilterClient() {
               onChange={(e) => setSort(e.target.value)}
             >
               <option className='option' value="">не задано</option>
-              <option className='option' value="sum-desc">Сначала дешевле</option>
-              <option className='option' value="sum-asc">Сначала дороже</option>
+              <option className='option' value="sum-asc">Сначала дешевле</option>
+              <option className='option' value="sum-desc">Сначала дороже</option>
               <option className='option' value="product_create_date-desc">Сначала новые</option>
               <option className='option' value="product_create_date-asc">Сначала старые</option>
 

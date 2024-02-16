@@ -30,6 +30,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -114,12 +115,15 @@ input {
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 20px;
+  gap: 20px;
 
   a {
     text-decoration: underline;
   }
 
   .center {
+    font-style: normal;
+
     .social {
       text-align: center;
       padding: 10px;
