@@ -18,6 +18,8 @@ export interface Istore {
     d07: string;
     [key: string]: string; 
   };
+  yandex_widget_url?: string;
+  doublegis_widget_url?: string;
   registrator_id: number;
   create_date: string;
   changed_date: string;

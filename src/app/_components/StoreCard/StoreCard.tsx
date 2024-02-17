@@ -46,15 +46,25 @@ export default function StoreCard({ item }: { item: Istore }) {
 
   return (
     <div className="StoreCard">
-      <div className="half">
+      <div className="left">
         <Image
           src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
           alt={item.name_1c}
-          width={250}
-          height={250}
+          width={300}
+          height={300}
         ></Image>
+        <div >
+          {item.yandex_widget_url && (
+          <iframe className="map"
+          //style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+          src={item.yandex_widget_url}
+        ></iframe>
+          
+          )}
+
+        </div>
       </div>
-      <div className="half">
+      <div className="right">
         <div className="address">
           Адрес: {item.city}, {item.address}
         </div>
