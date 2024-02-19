@@ -17,7 +17,7 @@ export default async function Page({ searchParams }: { searchParams: { [key: str
   if (res.data) goods = res.data.data;
 
   return (
-    <main className="goods">
+    <main className="goods _container">
       <div className="left">
         <FilterClient />
       </div>

@@ -46,6 +46,9 @@ export default function StoreCard({ item }: { item: Istore }) {
 
   return (
     <div className="StoreCard">
+            <div className="address">
+          Адрес: {item.city}, {item.address}
+        </div>
       <div className="left">
         <Image
           src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
@@ -65,12 +68,9 @@ export default function StoreCard({ item }: { item: Istore }) {
         </div>
       </div>
       <div className="right">
-        <div className="address">
-          Адрес: {item.city}, {item.address}
-        </div>
-        <br />
+
         <div className="days">
-          <b>Режим работы:</b>
+          <div className='title'>Режим работы:</div>
           <div>
             {workingDays.map((day) => (
               <div className="day" key={'day' + item.id_1c + day.dayName}>

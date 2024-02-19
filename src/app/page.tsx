@@ -16,18 +16,9 @@ export default async function Home() {
   const newProducts = (await cipoProductNews()).data;
 
   return (
-    <main className="main">
+    <main className="main _container">
       <div className="banner">
-        <div className="left">
-          <Image
-            className="image"
-            src="/main/main_2_central.webp"
-            alt="banner"
-            width={350}
-            height={300}
-            
-          ></Image>
-        </div>
+
         <div className="right">
           <div className="row">
             <div>
@@ -67,6 +58,15 @@ export default async function Home() {
               Мы используем анатомические стельки и натуральные материалы
             </div>
           </div>
+        </div>
+        <div className="left">
+          <Image
+            className="image"
+            src="/main/main_2_central.webp"
+            alt="banner"
+            fill
+            
+          ></Image>
         </div>
       </div>
       <div className="new_products">

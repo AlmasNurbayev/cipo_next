@@ -19,7 +19,7 @@ export default async function page({ params }: { params: { id: string } }) {
   const product = (await cipoGetProduct(params.id)).data;
 
   return (
-    <main className="main">
+    <main className="main _container">
       <div>id : {params.id}</div>
       <h1>name: {product.name}</h1>
       <ImageSlider

@@ -3,12 +3,6 @@
   display: flex;
   flex-direction: column;
 
-  padding: 0 6rem;
-  @media (max-width: 500px) {
-    & {
-      padding: 0 2rem;
-    }
-  }
   /* justify-content: space-between; */
   /* align-items: center; */
 
@@ -16,13 +10,30 @@
   .banner {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 
     .right {
+      display: flex;
+      flex-direction: column;
       flex-grow: 5;
       flex-basis: 400px;
       padding-left: 10px;
-      
+      justify-content: flex-end;
+
+      @media (max-width: 500px) {
+        &::before {
+          background: url("/main/main_2_central.webp") no-repeat ;
+          opacity: 0.4;
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+        }
+      }
+
 
       .row {
         display: flex;
@@ -42,9 +53,15 @@
     }
 
     .left {
-      /* position: relative;
-      width: 448px; */
-      /* height: 409px; */
+      position: relative;
+      height: 400px;
+      width: 400px;
+
+      @media (max-width: 500px) {
+        & {
+          display: none;
+        }
+      }
 
       .image {
         object-fit: scale-down;
