@@ -11,6 +11,12 @@
     }
   }
 
+  @media (max-width: 370px) {
+    & {
+      max-width: 120px;
+    }
+  }
+
   .top {
     position: relative;
     width: 200px;
@@ -21,6 +27,13 @@
       & {
         width: 140px;
         height: 140px;
+      }
+    }
+
+    @media (max-width: 370px) {
+      & {
+        width: 120px;
+        height: 120px;
       }
     }
   }
