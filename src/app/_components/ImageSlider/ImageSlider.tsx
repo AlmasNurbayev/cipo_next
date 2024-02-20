@@ -48,13 +48,13 @@ export default function ImageSlider({
 
   return (
     <div
-      className="wrapper"
+      className="image_wrapper"
       // style={{
       //   width: mainWidth + thumbsWidth + 20,
       //   height: mainHeight + thumbsHeight + 20,
       // }}
     >
-      <div className="main_view" >
+      <div className="main_view">
         {/* <div
           className="left_button"
           style={currentIndex === 0 ? { display: 'none' } : {}}
@@ -69,7 +69,7 @@ export default function ImageSlider({
           src={config.NEXT_PUBLIC_backendUrl + '/' + data[currentIndex].full_name}
           alt={'item.name'}
           fill
-          className='image'
+          className="image"
         />
       </div>
 
