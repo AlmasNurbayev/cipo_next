@@ -24,7 +24,9 @@ export default function Header() {
         <div></div>
         <Link href="/">
           <div className="logo">
-            <Image src="/main/cipo200-122.png" alt="logo" fill />
+            <Image src="/main/cipo200-122.png" alt="logo" fill 
+            priority={true}
+            />
           </div>
         </Link>
         <div className='right'>

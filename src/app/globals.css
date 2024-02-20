@@ -53,19 +53,19 @@ input {
 }
 
 ._container {
-  padding: 5rem 6rem 0rem 6rem;
+  padding: 12rem 3rem 0rem 3rem;
   max-width: 1280px;
   margin: 0 auto;
 
   @media (max-width: 1043px) {
     & {
-      padding: 9rem 1rem 1rem 1rem;
+      padding: 12rem 1rem 1rem 1rem;
     }
   }
 
   @media (max-width: 400px) {
     & {
-      padding: 6rem 1rem 1rem 1rem;
+      padding: 12rem 1rem 1rem 1rem;
     }
   }
 }

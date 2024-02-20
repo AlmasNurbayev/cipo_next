@@ -2,11 +2,27 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 200px;
+  max-width: 200px;
   cursor: pointer;
 
-  .top {
+  @media (max-width: 500px) {
+    & {
+      max-width: 140px;
+    }
+  }
 
+  .top {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
+    @media (max-width: 560px) {
+      & {
+        width: 140px;
+        height: 140px;
+      }
+    }
   }
 
   .card-down {

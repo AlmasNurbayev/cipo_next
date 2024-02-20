@@ -1,4 +1,4 @@
-import PostServer from './_components/PostServer';
+
 import FilterClient from './_components/FilterClient';
 import { cipoListGoods } from '../../api/cipo.api';
 import { IproductList } from '@/types/product_list';
@@ -6,16 +6,15 @@ import './page.css';
 import PageSortHeader from './_components/PageSortHeader';
 import CardProductVertical from './_components/CardProductVertical';
 import Link from 'next/link';
-import { Logger } from '@/shared/logger';
+
 
 // TODO - searchParams - типзировать 
 export default async function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined }}) {
   let goods: IproductList['data'] = [];
   // Logger.info('searchParams on page', searchParams)
   const res = await cipoListGoods(searchParams);
-
   if (res.data) goods = res.data.data;
-
+  
   return (
     <main className="goods _container">
       <div className="left">

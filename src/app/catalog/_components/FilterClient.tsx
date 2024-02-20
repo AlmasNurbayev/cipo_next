@@ -15,6 +15,7 @@ import './FilterClient.css';
 export default function FilterClient() {
   //const searchParams = useSearchParams();
   const searchParams = new URLSearchParams(useSearchParams());
+  const [showFilter, setShowFilter] = useState(false);
   const [search_name, setSearch_name] = useState(searchParams.get('search_name') || '');
   const [lists, setLists] = useState<any>();
   const [minPrice, setMinPrice] = useState(searchParams.get('minPrice'));
@@ -76,15 +77,14 @@ export default function FilterClient() {
     } else {
       searchParams.delete('sort');
     }
-    
+
     // если изменилось что-то в фильтрах - нужно сбрасывать пагинацию
     searchParams.set('page', '1');
     searchParams.set('skip', '0');
-
   }, [pg, size, vm, search_name, minPrice, maxPrice, sort]);
 
   function apply() {
-    router.push(`${pathname}?${searchParams}`, {scroll: false});
+    router.push(`${pathname}?${searchParams}`, { scroll: false });
   }
 
   function reset() {
@@ -160,8 +160,8 @@ export default function FilterClient() {
   }
 
   return (
-    <div className="filter_container">
-      <form className="filter_form">
+    <div className="filter_container" style={showFilter ? {} : {}}>
+      <form className="filter_form"  style={showFilter ? {display: 'flex'} : {display: 'none'}}>
         <Button height={40} type="button" onPress={apply}>
           <span className="button_title">Применить</span>
         </Button>
@@ -169,21 +169,30 @@ export default function FilterClient() {
           <span className="clear-button-title">Сбросить</span>
         </Button>
 
-        <div className='sort'>
-            <div className='title'>Сортировка</div>
-            <select
-              className='select'
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-            >
-              <option className='option' value="">не задано</option>
-              <option className='option' value="sum-asc">Сначала дешевле</option>
-              <option className='option' value="sum-desc">Сначала дороже</option>
-              <option className='option' value="product_create_date-desc">Сначала новые</option>
-              <option className='option' value="product_create_date-asc">Сначала старые</option>
-
-            </select>
-          </div>
+        <div className="sort">
+          <div className="title">Сортировка</div>
+          <select
+            className="select"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option className="option" value="">
+              не задано
+            </option>
+            <option className="option" value="sum-asc">
+              Сначала дешевле
+            </option>
+            <option className="option" value="sum-desc">
+              Сначала дороже
+            </option>
+            <option className="option" value="product_create_date-desc">
+              Сначала новые
+            </option>
+            <option className="option" value="product_create_date-asc">
+              Сначала старые
+            </option>
+          </select>
+        </div>
 
         <fieldset className="sezons">
           <div className="title">Сезоны{pg.length === 0 ? ': все' : ''}</div>
@@ -276,6 +285,10 @@ export default function FilterClient() {
           <span className="clear-button-title">Сбросить</span>
         </Button>
       </form>
+      <div className='spoiler' onClick={() => setShowFilter(!showFilter)} >
+        {'Фильтры '}{showFilter ? '◄' : '►'}
+      </div>
+
     </div>
   );
 }

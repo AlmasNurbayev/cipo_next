@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import './PageSortHeader.css'
 import Pagination from './Pagination';
 
-export default function PageSortHeader({count} : {count: number})  {
+export default function PageSortHeader({count} : {count: number}) {
   const searchParams = new URLSearchParams(useSearchParams());
   const [take, setTake] = useState(searchParams.get('take') || '20');
   const [skip, setSkip] = useState(searchParams.get('skip') || '0');
@@ -24,7 +24,6 @@ export default function PageSortHeader({count} : {count: number})  {
 
   return (
     <div className='PageSortHeader'>
-
           <Pagination take={Number(take)} count={count}/>
           {/* <div className='count'>
             <div className='count_title'>На странице</div>

@@ -8,8 +8,10 @@
 
   /* min-height: 100vh; */
   .banner {
+    margin-top: -6rem;
     display: flex;
     flex-direction: row;
+    
     /* flex-wrap: wrap; */
 
     .right {

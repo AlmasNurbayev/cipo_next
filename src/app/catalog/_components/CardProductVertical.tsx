@@ -11,8 +11,7 @@ export default function CardProductVertical({ item }: { item: IproductOnce }) {
         <Image
           src={config.backendUrl + '/' + item.image_active_path}
           alt={item.name}
-          width={200}
-          height={200}
+          fill
         />
       </div>
       <div className="card-down">
