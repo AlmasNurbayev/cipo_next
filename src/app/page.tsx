@@ -27,6 +27,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
+                loading='eager'
               ></Image>
             </div>
             <div className="text_column">Правильно подберем обувь в наших магазинах</div>
@@ -38,6 +39,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
+                loading='eager'
               ></Image>
             </div>
             <div className="text_column">
@@ -52,6 +54,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
+                loading='eager'
               ></Image>
             </div>
             <div className="text_column">
