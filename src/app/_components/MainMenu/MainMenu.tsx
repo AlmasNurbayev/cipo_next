@@ -22,6 +22,7 @@ export default function MainMenu() {
         height={50}
         alt="burger"
         className="burger"
+        loading='eager'
         onClick={() => {
           setOpenBurger(!openBurger);
         }}
