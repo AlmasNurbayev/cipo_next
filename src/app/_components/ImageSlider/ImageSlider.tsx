@@ -65,17 +65,17 @@ export default function ImageSlider({
           style={currentIndex === data.length - 1 ? { display: 'none' } : {}}
           onClick={nextPicture}
         /> */}
-        <Image
+        <img
           src={config.NEXT_PUBLIC_backendUrl + '/' + data[currentIndex].full_name}
-          alt={'item.name'}
-          fill
+          alt={data[currentIndex].name}
+          //fill
           className="image"
         />
       </div>
 
       <div className="thumbs_wrapper">
         {data.map((item, index) => (
-          <Image
+          <img
             key={item.full_name}
             src={config.NEXT_PUBLIC_backendUrl + '/' + item.full_name}
             alt={'item.name'}

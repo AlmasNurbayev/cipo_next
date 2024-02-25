@@ -43,7 +43,7 @@ export default function Header() {
               placeholder="поиск..."
               height={35}
             ></Input>
-            <button type="submit" className="image_right" />
+            <button type="submit" aria-label='search' title='search' className="image_right" />
           </form>
           <Link href="https://wa.me/77788121260">
             <div className="whatsapp">

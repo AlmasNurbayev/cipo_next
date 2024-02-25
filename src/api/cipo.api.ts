@@ -17,12 +17,11 @@ export async function cipoListGoods(params?: { [key: string]: string | string[] 
       stringParams += `&${param}=${params[param]}`;
     }
   }
- 
   const url =
     config.backendUrl +
     '/api/products/' +
     (stringParams !== '' ? '?' + stringParams : '');
-    
+  // Logger.info(url);
   const res = await fetch(url, {
     next: { tags: ['goods'], revalidate: 0 },
   });
@@ -37,37 +36,38 @@ export async function cipoFilterList() {
 }
 
 export async function cipoListStores() {
-  // on client
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/stores';
+  // on server
+  const url = config.backendUrl + '/api/stores';
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<Istore[]>(res, url);
 }
 
 export async function cipoListNews() {
-  // on client
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/news?news=5';
+  // on server
+  const url = config.backendUrl + '/api/news?news=5';
+  // Logger.info(url);
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<Inews[]>(res, url);
 }
 
 export async function cipoGetNews(id: string) {
   // on server
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/newsID?id=' + id;
+  const url = config.backendUrl + '/api/newsID?id=' + id;
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<Inews>(res, url);
 }
 
 export async function cipoGetProduct(id: string) {
   // on server
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/product?id=' + id;
+  const url = config.backendUrl + '/api/product?id=' + id;
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<IproductFull>(res, url);
 }
 
 
 export async function cipoProductNews() {
-  // on client
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/productsNews?news=10';
+  // on server
+  const url = config.backendUrl + '/api/productsNews?news=10';
   const res = await fetch(url, { next: { revalidate: 60 } });
   // бэкенд отдает не точное кол-во продуктов, а после группировки.
   // поэтому запрашиваем больше и отдаем сколько надо

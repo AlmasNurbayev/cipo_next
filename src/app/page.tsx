@@ -133,12 +133,12 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <h2>
+      {/* <h2>
         <Link href="/posts_server/">Posts_server</Link>
       </h2>
       <h2>
         <Link href="/posts_mix/">Posts_mix</Link>
-      </h2>
+      </h2> */}
     </main>
   );
 }

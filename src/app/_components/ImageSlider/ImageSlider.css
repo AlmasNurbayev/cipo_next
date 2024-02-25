@@ -62,7 +62,8 @@
   } */
 
   .image {
-    object-fit: contain;
+    width: inherit;
+    height: ingerit;
     z-index: -1;
 
 

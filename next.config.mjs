@@ -3,18 +3,28 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '45.146.167.130',
+        protocol: 'http',
+        hostname: 'cipo-site-server',
         pathname: '/news_images/**',
       },
       {
-        protocol: 'https',
-        hostname: '45.146.167.130',
+        protocol: 'http',
+        hostname: 'cipo-site-server',
         pathname: '/product_images/**',
       },
       {
         protocol: 'https',
-        hostname: '45.146.167.130',
+        hostname: '5.35.80.46',
+        pathname: '/product_images/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'cipo-site-server',
+        pathname: '/store_images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '5.35.80.46',
         pathname: '/store_images/**',
       },
       {

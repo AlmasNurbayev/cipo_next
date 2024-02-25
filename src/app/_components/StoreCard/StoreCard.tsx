@@ -50,15 +50,16 @@ export default function StoreCard({ item }: { item: Istore }) {
           Адрес: {item.city}, {item.address}
         </div>
       <div className="left">
-        <Image
+        <img
           src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
           alt={item.name_1c}
           width={300}
           height={300}
-        ></Image>
+          loading='lazy'
+        ></img>
         <div >
           {item.yandex_widget_url && (
-          <iframe className="map"
+          <iframe className="map" title='yandex map'
           //style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
           src={item.yandex_widget_url}
         ></iframe>
