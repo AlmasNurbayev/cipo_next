@@ -8,6 +8,11 @@ const nextConfig = {
         pathname: '/news_images/**',
       },
       {
+        protocol: 'https',
+        hostname: '5.35.80.46',
+        pathname: '/news_images/**',
+      },
+      {
         protocol: 'http',
         hostname: 'cipo-site-server',
         pathname: '/product_images/**',
