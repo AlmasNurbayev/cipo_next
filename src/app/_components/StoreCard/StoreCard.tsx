@@ -46,50 +46,49 @@ export default function StoreCard({ item }: { item: Istore }) {
 
   return (
     <div className="StoreCard">
-            <div className="address">
-          Адрес: {item.city}, {item.address}
-        </div>
-      <div className="left">
-        <img
-          src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
-          alt={item.name_1c}
-          width={300}
-          height={300}
-          loading='lazy'
-        ></img>
-        <div >
+      <div className="address">
+        Адрес: {item.city}, {item.address}
+      </div>
+      <div className="row">
+        <div className="left">
+          <img
+            src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
+            alt={item.name_1c}
+            width={300}
+            height={300}
+            loading="lazy"
+          ></img>
+          {/* <div >
           {item.yandex_widget_url && (
           <iframe className="map" title='yandex map'
           //style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
           src={item.yandex_widget_url}
         ></iframe>
-          
           )}
-
+        </div> */}
         </div>
-      </div>
-      <div className="right">
-
-        <div className="days">
-          <div className='title'>Режим работы:</div>
-          <div>
-            {workingDays.map((day) => (
-              <div className="day" key={'day' + item.id_1c + day.dayName}>
-                <div>{day.dayName}</div>
-                <div>{day.hours}</div>
-              </div>
-            ))}
+        <div className="right">
+          <div className="days">
+            <div className="title">Режим работы:</div>
+            <div>
+              {workingDays.map((day) => (
+                <div className="day" key={'day' + item.id_1c + day.dayName}>
+                  <div>{day.dayName}</div>
+                  <div>{day.hours}</div>
+                </div>
+              ))}
+            </div>
           </div>
+          {item.link_2gis && (
+            <div className="button_container">
+              <Link href={item.link_2gis}>
+                <Button width={200} height={50}>
+                  <span className="button_title">Открыть в 2gis</span>
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
-        {item.link_2gis && (
-          <div className="button_container">
-            <Link href={item.link_2gis}>
-              <Button width={200} height={50}>
-                <span className="button_title">Открыть в 2gis</span>
-              </Button>
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );

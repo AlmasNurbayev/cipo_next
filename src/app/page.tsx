@@ -68,7 +68,8 @@ export default async function Home() {
             src="/main/main_2_central.webp"
             alt="banner"
             fill
-            
+            loading='eager'
+            priority
           ></Image>
         </div>
       </div>

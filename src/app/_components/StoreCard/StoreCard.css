@@ -2,47 +2,53 @@
   min-height: 330px;
   /* max-width: 500px; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
 
   .address {
-    text-align: left;
-    padding: 10px;
+    padding-bottom: 15px;
   }
 
-  .left {
+  .row {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 10px;
-    gap: 10px;
-
-    .map {
-      width: 300px;
-      height: 300px;
-    }
-  }
-
-  .right {
-
-    .days {
-      max-width: 40vh;
-
-      .title {
-        padding-bottom: 10px;
-      }
-
-      .day {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 10px;
-      }
-    }
-
-    .button_container {
-      padding-top: 15px;
+    .address {
       text-align: left;
+      padding: 10px;
+    }
+
+    .left {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 10px;
+      gap: 10px;
+
+      .map {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    .right {
+      .days {
+        max-width: 40vh;
+
+        .title {
+          padding-bottom: 10px;
+        }
+
+        .day {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 10px;
+        }
+      }
+
+      .button_container {
+        padding-top: 15px;
+        text-align: left;
+      }
     }
   }
 }

@@ -69,20 +69,32 @@ export default async function GoodPage({ params }: { params: { id: string } }) {
           <div>
             <b>Наличие:</b>
           </div>
-          <div>
+          <div className="tab-nav">
             {product.qnt_price_registry_group.map((e, index) => (
-              <div  className="right__title" key={e.size_name_1c} title={e.size_name_1c}>
-                <div>Размер: <b>{e.size_name_1c}</b>{'  Цена:  '}{e.sum.toLocaleString('ru-RU') + ' ₸'}</div>
-                <div className="right__store">
-                  {/* <div key={'p' + e.size_name_1c}>
+              <>
+                <a className="tab-link" href={'#' + e.size_name_1c}>
+                  {e.size_name_1c}
+                </a>
+
+                <div className="right__title" key={e.size_name_1c} title={e.size_name_1c}>
+                  <div>
+                    Размер: <b>{e.size_name_1c}</b>
+                    {'  Цена:  '}
+                    {e.sum.toLocaleString('ru-RU') + ' ₸'}
+                  </div>
+                  <div className="right__store">
+                    {/* <div key={'p' + e.size_name_1c}>
                     
                   </div> */}
-                  <div key={'p2' + e.size_name_1c}>Магазин:</div>
-                  {e.store_id.map((store_id) => (
-                    <div key={'store_id' + store_id}>{stores.find(store => store.id === store_id)?.address}</div>
-                  ))}
+                    <div key={'p2' + e.size_name_1c}>Магазин:</div>
+                    {e.store_id.map((store_id) => (
+                      <div key={'store_id' + store_id}>
+                        {stores.find((store) => store.id === store_id)?.address}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </>
             ))}
           </div>
         </div>
