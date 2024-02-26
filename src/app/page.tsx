@@ -8,7 +8,8 @@ import CardProductHorizontal from './_components/CardProductHorizontal/CardProdu
 import Button from './_components/Button';
 import NewsCard from './_components/NewsCard/NewsCard';
 import StoreCard from './_components/StoreCard/StoreCard';
-import './page.css'
+import './page.css';
+import Script from 'next/script';
 
 export default async function Home() {
   const news = (await cipoListNews()).data;
@@ -18,7 +19,6 @@ export default async function Home() {
   return (
     <main className="main _container">
       <div className="banner">
-
         <div className="right">
           <div className="row">
             <div>
@@ -27,7 +27,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
-                loading='eager'
+                loading="eager"
               ></Image>
             </div>
             <div className="text_column">Правильно подберем обувь в наших магазинах</div>
@@ -39,7 +39,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
-                loading='eager'
+                loading="eager"
               ></Image>
             </div>
             <div className="text_column">
@@ -54,7 +54,7 @@ export default async function Home() {
                 width={100}
                 height={100}
                 alt="подбор"
-                loading='eager'
+                loading="eager"
               ></Image>
             </div>
             <div className="text_column">
@@ -68,7 +68,7 @@ export default async function Home() {
             src="/main/main_2_central.webp"
             alt="banner"
             fill
-            loading='eager'
+            loading="eager"
             priority
           ></Image>
         </div>
@@ -81,7 +81,10 @@ export default async function Home() {
               key={'new_products link' + index + item.product_id}
               href={'/catalog/' + item.product_id}
             >
-              <CardProductHorizontal key={'new_products ' + index + item.product_id} item={item} />
+              <CardProductHorizontal
+                key={'new_products ' + index + item.product_id}
+                item={item}
+              />
             </Link>
           ))}
         </div>
@@ -116,7 +119,7 @@ export default async function Home() {
         <div className="title_section">О нас</div>
         <div className="wrapper">
           <div className="left">
-            <Image src="/main/anelya.webp" alt="Анэля" fill className='image'></Image>
+            <Image src="/main/anelya.webp" alt="Анэля" fill className="image"></Image>
           </div>
           <div className="right">
             <span>
@@ -125,13 +128,15 @@ export default async function Home() {
                 такой поиск был стрессом. Моя миссия - помочь родителям с этим.
               </p>
               <p>
-                Многие модели от известных производителей
-                не устраивали качеством, многие - не подходили под нашу погоду
-                материалами. А с дизайном обуви вообще беда (если мы не говорим про
-                премиальные бренды, не доступные основному населению). Поэтому мы разрабатываем свои модели - адаптированные под наши условия. 
+                Многие модели от известных производителей не устраивали качеством, многие
+                - не подходили под нашу погоду материалами. А с дизайном обуви вообще беда
+                (если мы не говорим про премиальные бренды, не доступные основному
+                населению). Поэтому мы разрабатываем свои модели - адаптированные под наши
+                условия.
               </p>
               <p>
-                Мы - социально ориентированный бренд, предоставляем скидки многодетным родителям и особенным детям. 
+                Мы - социально ориентированный бренд, предоставляем скидки многодетным
+                родителям и особенным детям.
               </p>
             </span>
           </div>
@@ -143,6 +148,20 @@ export default async function Home() {
       <h2>
         <Link href="/posts_mix/">Posts_mix</Link>
       </h2> */}
+      <Script
+        id="google tag1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-JBN087M0XJ"
+      ></Script>
+      <Script id="google tag2">
+           {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag() { dataLayer.push(arguments); }
+              gtag('js', new Date());
+
+              gtag('config', 'G-JBN087M0XJ');
+
+           `}
+      </Script>
     </main>
   );
 }
