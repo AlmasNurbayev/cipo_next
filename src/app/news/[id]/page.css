@@ -1,0 +1,13 @@
+.newPage {
+  line-height: 1.5rem;
+  padding-bottom: 30px;
+
+  .title {
+    padding: 10px 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
