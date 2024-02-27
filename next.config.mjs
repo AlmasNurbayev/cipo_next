@@ -9,8 +9,8 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '5.35.80.46',
-        pathname: '/news_images/**',
+        hostname: 'cipo.kz',
+        pathname: '/static/news_images/**',
       },
       {
         protocol: 'http',
@@ -19,8 +19,8 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '5.35.80.46',
-        pathname: '/product_images/**',
+        hostname: 'cipo.kz',
+        pathname: '/static/product_images/**',
       },
       {
         protocol: 'http',
@@ -29,8 +29,8 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '5.35.80.46',
-        pathname: '/store_images/**',
+        hostname: 'cipo.kz',
+        pathname: '/static/store_images/**',
       },
       {
         protocol: 'https',

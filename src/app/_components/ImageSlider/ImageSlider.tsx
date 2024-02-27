@@ -66,7 +66,7 @@ export default function ImageSlider({
           onClick={nextPicture}
         /> */}
         <img
-          src={config.NEXT_PUBLIC_backendUrl + '/' + data[currentIndex].full_name}
+          src={config.staticPath + '/' + data[currentIndex].full_name}
           alt={data[currentIndex].name}
           //fill
           className="image"
@@ -77,7 +77,7 @@ export default function ImageSlider({
         {data.map((item, index) => (
           <img
             key={item.full_name}
-            src={config.NEXT_PUBLIC_backendUrl + '/' + item.full_name}
+            src={config.staticPath + '/' + item.full_name}
             alt={'item.name'}
             width={thumbsWidth}
             height={thumbsHeight}

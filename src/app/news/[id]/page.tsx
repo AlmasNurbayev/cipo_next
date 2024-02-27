@@ -27,7 +27,7 @@ export default async function NewPage({ params }: { params: { id: string } }) {
       </div>
 
           <Image
-            src={config.backendUrl + '/' + news.image_path}
+            src={config.staticPath + '/' + news.image_path}
             width={300}
             height={300}
             alt={news.title}

@@ -52,7 +52,7 @@ export default function StoreCard({ item }: { item: Istore }) {
       <div className="row">
         <div className="left">
           <img
-            src={config.NEXT_PUBLIC_backendUrl + '/' + item.image_path}
+            src={config.staticPath + '/' + item.image_path}
             alt={item.name_1c}
             width={300}
             height={300}

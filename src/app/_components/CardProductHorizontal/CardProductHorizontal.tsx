@@ -7,7 +7,7 @@ export default function CardProductHorizontal({ item }: { item: IproductNew }) {
   return (
     <div className="cardProductHorizontal">
       <Image
-        src={config.backendUrl + '/' + item.image_active_path}
+        src={config.staticPath + '/' + item.image_active_path}
         alt={item.name}
         width={188}
         height={188}

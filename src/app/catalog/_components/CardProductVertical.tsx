@@ -9,7 +9,7 @@ export default function CardProductVertical({ item }: { item: IproductOnce }) {
     <div className="CardProductVertical">
       <div className="top">
         <Image
-          src={config.backendUrl + '/' + item.image_active_path}
+          src={config.staticPath + '/' + item.image_active_path}
           alt={item.name}
           fill
         />

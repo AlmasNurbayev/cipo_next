@@ -13,7 +13,7 @@ export default function NewsCard({ item }: { item: Inews }) {
         <h2>{item.title}</h2>
         <div className="top">
           <Image
-            src={config.backendUrl + '/' + item.image_path}
+            src={config.staticPath + '/' + item.image_path}
             alt={item.title}
             width={200}
             height={200}
