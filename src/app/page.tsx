@@ -63,14 +63,14 @@ export default async function Home() {
           </div>
         </div>
         <div className="left">
-          <Image
+          <img
             className="image"
             src="/main/main_2_central.webp"
             alt="banner"
-            fill
+            // fill
             loading="eager"
-            priority
-          ></Image>
+            // priority
+          ></img>
         </div>
       </div>
       <div className="new_products">
