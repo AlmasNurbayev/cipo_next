@@ -170,6 +170,7 @@ input {
 
   .center {
     font-style: normal;
+    text-align: center;
 
     .social {
       text-align: center;
