@@ -148,20 +148,6 @@ export default async function Home() {
       <h2>
         <Link href="/posts_mix/">Posts_mix</Link>
       </h2> */}
-      <Script
-        id="google tag1"
-        src="https://www.googletagmanager.com/gtag/js?id=G-JBN087M0XJ"
-      ></Script>
-      <Script id="google tag2">
-           {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag() { dataLayer.push(arguments); }
-              gtag('js', new Date());
-
-              gtag('config', 'G-JBN087M0XJ');
-
-           `}
-      </Script>
     </main>
   );
 }
