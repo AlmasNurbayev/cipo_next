@@ -24,7 +24,10 @@ export default async function Page({ searchParams }: { searchParams: { [key: str
         <PageSortHeader count={res.data.full_count} />
         <div className="down">
           {goods.length === 0 ? (
+            <div>
             <div className="title_section">Нет товаров с заданными условиями</div>
+            <Link href="/catalog/">Сбросить условия отбора</Link>
+            </div>
           ) : (
             ''
           )}
