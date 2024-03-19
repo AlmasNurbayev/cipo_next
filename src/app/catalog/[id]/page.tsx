@@ -93,6 +93,7 @@ export default async function GoodPage({ params }: { params: { id: string } }) {
               key={'size' + e.size_name_1c}
               title={e.size_name_1c}
             >
+              <div className='right__size'>размер: {e.size_name_1c}</div>
               <div className="right__price">
                 <h2>{e.sum.toLocaleString('ru-RU') + ' ₸'}</h2>
               </div>
