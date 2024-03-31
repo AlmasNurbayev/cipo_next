@@ -12,6 +12,8 @@
 
   .row {
     display: flex;
+    flex-wrap: wrap;
+
     .address {
       text-align: left;
       padding: 10px;
