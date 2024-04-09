@@ -22,15 +22,14 @@
 ## Deploy
 - пример docker compose и конфигурации nginx - в папке deploy
 - Nginx поднимается через официальный image, в его volume нужно положить папку conf.d и внутри:
-  папка ssl с сертификатами
-  файл app.conf с конфигурацией
+    папка ssl с сертификатами
+    файл app.conf с конфигурацией
 - папки для контейнеров нужно получить через git clone этого репо и cipo-site-server, пример структуры каталогов:
-  cipo-nginx\
-  conf.d - создать каталог
-  cipo-site-server\ - клонировать репо
-  cipo_next\ - клонировать репо
-  volume_db\
-  docker-compose.yaml
-  .env.example
-  .env
+    cipo-nginx\conf.d - создать каталог
+    cipo-site-server\ - клонировать репо
+    cipo_next\ - клонировать репо
+    volume_db\
+    docker-compose.yaml
+    .env.example
+    .env
 - для получения доступа к cipo-site-server из другого пода контейнеров с телеграм-ботом - в docker-compose прокинута внешняя сеть kofd
