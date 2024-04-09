@@ -1,0 +1,87 @@
+version: '3.8'
+services:
+  db-cipo:
+    image: postgres:16.1-alpine
+    ports:
+      - ${PGPORT_EXTERNAL}:5432
+    environment:
+      TZ: 'Asia/Qyzylorda'
+      POSTGRES_DB: ${PGDATABASE}
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+    volumes:
+      - ./volume_db/:/var/lib/postgresql/data
+    restart: unless-stopped
+      #- ./create.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  cipo-site-server:
+    image: node:20.11.1
+    depends_on:
+    - db-cipo
+    # - rabbitmq
+    command: bash -c "npm install && npm run server"
+    working_dir: /app
+    volumes:
+      - ./cipo-site-server/:/app
+    ports:
+      - 3003:${PORT_HTTPS}
+    environment:
+      TZ: 'Asia/Qyzylorda'
+      PORT_HTTPS: ${PORT_HTTPS}
+      PORT_HTTP: ${PORT_HTTP}
+      mlRoute: ${mlRoute}
+      npRoute: ${npRoute}
+      record_log: ${record_log}
+      clean_qnt_price: ${clean_qnt_price}
+      clean_qnt_price_day: ${clean_qnt_price_day}
+      clean_image_folder: ${clean_image_folder}
+      DATABASE_URL: postgresql://${PGUSER}:${PGPASSWORD}@db-cipo:5432/${PGDATABASE}?schema=public
+      JWT_SECRET_CODE: ${JWT_SECRET_CODE}
+      JWT_EXP_MS: ${JWT_EXP_MS}
+    restart: unless-stopped
+    networks:
+      kofd:
+          aliases:
+                    - cipo-site-server.local
+      default:
+
+  next:
+    image: node:20.11.1
+    depends_on:
+    - cipo-site-server
+    # - rabbitmq
+    command: bash -c "npm install && npm run build && npm run start"
+    working_dir: /app
+    volumes:
+      - ./learn_next/:/app
+    ports:
+      - 3200:3200
+    environment:
+      TZ: 'Asia/Qyzylorda'
+      backendUrl: ${backendUrl}
+      NEXT_PUBLIC_backendUrl: ${NEXT_PUBLIC_backendUrl}
+      frontUrl: ${frontUrl}
+      NEXT_PUBLIC_frontUrl: ${NEXT_PUBLIC_frontUrl}
+    networks:
+      default:
+
+  cipo-nginx:
+    image: nginx:1.25
+    environment:
+      TZ: 'Asia/Qyzylorda'
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./cipo-site-server/news_images:/app/static/news_images
+      - ./cipo-site-server/store_images:/app/static/store_images
+      - ./cipo-site-server/product_images:/app/static/product_images
+      - ./cipo-site-server/logs:/app/static/logs
+      - ./cipo-nginx/conf.d/:/etc/nginx/conf.d/:ro
+    restart: always
+
+networks:
+  kofd:
+    name: 'kofd'
+    external: true
+  default:
