@@ -36,6 +36,8 @@ services:
       clean_qnt_price_day: ${clean_qnt_price_day}
       clean_image_folder: ${clean_image_folder}
       DATABASE_URL: postgresql://${PGUSER}:${PGPASSWORD}@db-cipo:5432/${PGDATABASE}?schema=public
+      kaspi_merchant_name: ${kaspi_merchant_name}
+      kaspi_merchant_id: ${kaspi_merchant_id}
       JWT_SECRET_CODE: ${JWT_SECRET_CODE}
       JWT_EXP_MS: ${JWT_EXP_MS}
     restart: unless-stopped
@@ -76,6 +78,7 @@ services:
       - ./cipo-site-server/news_images:/app/static/news_images
       - ./cipo-site-server/store_images:/app/static/store_images
       - ./cipo-site-server/product_images:/app/static/product_images
+      - ./cipo-site-server/shared_price:/app/static/shared_price
       - ./cipo-site-server/logs:/app/static/logs
       - ./cipo-nginx/conf.d/:/etc/nginx/conf.d/:ro
     restart: always
