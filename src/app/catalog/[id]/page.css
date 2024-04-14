@@ -21,9 +21,7 @@
         & {
           max-width: 200px;
         }
-        
       }
-      
 
       .grid {
         padding-left: 20px;
@@ -41,24 +39,43 @@
       }
 
       .tab-nav {
-        display: flex;
+        display: block;
         flex-wrap: wrap;
         margin: 0 auto;
         padding: 10px;
 
+        .accordion-checkbox {
+          display: none;
+        }
 
-        .tab-link {
+        .accordition-header-active {
+          font-weight: bold;
+          color: var(--main-color);
+        }
+
+        .accordion-header {
           padding: 10px;
-          font-size: larger;
-          text-decoration: none;
+          /* text-decoration: none;
           border: 1px solid var(--main-color);
-          border-radius: 5px;
+          border-radius: 5px; */
           color: black;
+          cursor: pointer;
+          display: block;
 
           &:hover {
             background-color: var(--main-color);
             color: white;
           }
+        }
+
+        .accordion-content {
+          padding: 10px;
+          display: none;
+        }
+
+        /* Show content when checkbox is checked */
+        .accordion-checkbox:checked + .accordion-header + .accordion-content {
+          display: block;
         }
       }
 
@@ -98,9 +115,7 @@
   flex-wrap: wrap;
 }
 
-
 .active_size {
   background-color: var(--main-color);
-  color: white!important;
-
+  color: white !important;
 }
