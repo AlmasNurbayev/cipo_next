@@ -29,8 +29,8 @@ export async function cipoListGoods(params?: { [key: string]: string | string[] 
 }
 
 export async function cipoFilterList() {
-  // on client
-  const url = config.NEXT_PUBLIC_backendUrl + '/api/productsFilter';
+  // on server
+  const url = config.NEXT_PUBLIC_frontUrl + '/api/productsFilter';
   const res = await fetch(url, { next: { revalidate: 60 } });
   return await handleResponse<IproductsFilter>(res, url);
 }
