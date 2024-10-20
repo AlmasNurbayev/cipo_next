@@ -6,9 +6,10 @@ import { IproductNew } from '@/types/productsNews';
 import { IproductsFilter } from '@/types/productsFilter';
 import { IproductList } from '@/types/product_list';
 import { IproductFull } from '@/types/product_full';
-import { Logger } from '@/shared/logger';
 
-export async function cipoListGoods(params?: { [key: string]: string | string[] | undefined }) {
+export async function cipoListGoods(params?: {
+  [key: string]: string | string[] | undefined;
+}) {
   // on server
   // Logger.info(params);
   let stringParams = '';
@@ -31,7 +32,7 @@ export async function cipoListGoods(params?: { [key: string]: string | string[] 
 export async function cipoFilterList() {
   // on server
   const url = config.NEXT_PUBLIC_frontUrl + '/api/productsFilter';
-  const res = await fetch(url, { next: { revalidate: 60 } });
+  const res = await fetch(url, { cache: 'no-store' });
   return await handleResponse<IproductsFilter>(res, url);
 }
 
@@ -64,16 +65,14 @@ export async function cipoGetProduct(id: string) {
   return await handleResponse<IproductFull>(res, url);
 }
 
-
 export async function cipoProductNews() {
   // on server
   const url = config.backendUrl + '/api/productsNews?news=10';
   const res = await fetch(url, { next: { revalidate: 60 } });
   // бэкенд отдает не точное кол-во продуктов, а после группировки.
   // поэтому запрашиваем больше и отдаем сколько надо
-  // TODO - на бэкенде изменить алгоритм 
+  // TODO - на бэкенде изменить алгоритм
   const manyProducts = await handleResponse<IproductNew[]>(res, url);
   manyProducts.data = manyProducts.data.slice(0, 6);
   return manyProducts;
 }
-
