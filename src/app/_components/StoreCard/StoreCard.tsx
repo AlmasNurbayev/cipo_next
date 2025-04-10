@@ -51,13 +51,13 @@ export default function StoreCard({ item }: { item: Istore }) {
       </div>
       <div className="row">
         <div className="left">
-          <img
+          <Image
             src={config.staticPath + '/' + item.image_path}
             alt={item.name_1c}
             width={300}
             height={300}
             loading="lazy"
-          ></img>
+          ></Image>
           {/* <div >
           {item.yandex_widget_url && (
           <iframe className="map" title='yandex map'

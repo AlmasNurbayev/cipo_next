@@ -3,6 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        hostname: 'cipo_nginx',
+      },
+      {
+        hostname: 'cipo_backend_server',
+      },
+      {
         protocol: 'http',
         hostname: 'cipo-site-server',
         pathname: '/news_images/**',
@@ -37,7 +43,6 @@ const nextConfig = {
         hostname: 'cdn.dummyjson.com',
         pathname: '**',
       },
-      
     ],
   },
   // ниже настройка нужна для корректной работы winston
