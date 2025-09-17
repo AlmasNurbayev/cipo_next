@@ -1,0 +1,31 @@
+.cardProductHorizontal {
+  max-width: 370px;
+  height: 190px;
+  border: solid var(--border-color) 1px;
+  box-shadow: 2px 2px 4px lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+    
+    .sizes {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .size {
+        padding-right: 5px;
+      }
+    }
+
+    .price {
+      font-weight: 800;
+    }
+  }
+}

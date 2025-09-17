@@ -10,6 +10,7 @@ import NewsCard from './_components/NewsCard/NewsCard';
 import StoreCard from './_components/StoreCard/StoreCard';
 import './page.css';
 import Script from 'next/script';
+import CardProductNew from './_components/CardProductNew/CardProductNew';
 
 export default async function Home() {
   const news = (await cipoListNews()).data;
@@ -81,7 +82,7 @@ export default async function Home() {
               key={'new_products link' + index + item.product_id}
               href={'/catalog/' + item.product_id}
             >
-              <CardProductHorizontal
+              <CardProductNew
                 key={'new_products ' + index + item.product_id}
                 item={item}
               />
