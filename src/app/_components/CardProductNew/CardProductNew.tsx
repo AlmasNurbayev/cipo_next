@@ -6,6 +6,7 @@ import Image from 'next/image';
 export default function CardProductNew({ item }: { item: IproductNew }) {
   let minPrice = 0;
   let maxPrice = 0;
+  let priceString = '';
   item.qnt_price.forEach((qnt) => {
     if (minPrice === 0 || qnt.sum < minPrice) {
       minPrice = qnt.sum;
@@ -14,6 +15,12 @@ export default function CardProductNew({ item }: { item: IproductNew }) {
       maxPrice = qnt.sum;
     }
   });
+  if (minPrice === maxPrice) {
+    priceString = minPrice.toLocaleString('ru-RU') + ' ₸';
+  } else {
+    priceString =
+      minPrice.toLocaleString('ru-RU') + ' - ' + maxPrice.toLocaleString('ru-RU') + ' ₸';
+  }
 
   return (
     <div className="cardProductHorizontal">
@@ -35,12 +42,7 @@ export default function CardProductNew({ item }: { item: IproductNew }) {
             ))}
           </div>
         </div>
-        <div className="price">
-          {minPrice.toLocaleString('ru-RU') +
-            ' - ' +
-            maxPrice.toLocaleString('ru-RU') +
-            ' ₸'}
-        </div>
+        <div className="price">{priceString}</div>
       </div>
     </div>
   );
