@@ -1,5 +1,5 @@
 {
-  "name": "learn_next",
+  "name": "cipo_next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.1.4",
+    "next": "^14.2.35",
     "rc-slider": "^10.5.0",
     "react": "^18",
     "react-dom": "^18",
@@ -20,8 +20,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
     "prettier": "^3.2.5",
     "typescript": "^5"
   }
