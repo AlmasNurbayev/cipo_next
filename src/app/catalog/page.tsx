@@ -9,24 +9,41 @@ import Link from 'next/link';
 
 
 // TODO - searchParams - типзировать 
-export default async function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined }}) {
+export default async function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   let goods: IproductList['data'] = [];
   // Logger.info('searchParams on page', searchParams)
-  const res = await cipoListGoods(searchParams);
-  if (res.data) goods = res.data.data;
-  
+
+  let fullCount = 0;
+  let errorMessage = '';
+
+  try {
+    const res = await cipoListGoods(searchParams);
+    if (res.data) {
+      goods = res.data.data;
+      fullCount = res.data.full_count;
+    }
+  } catch (error) {
+    // console.error(error);
+    errorMessage = 'Какая-то ошибка), длина запроса должна быть не менее 3 символов';
+  }
+
   return (
     <main className="goods _container">
       <div className="left">
         <FilterClient />
       </div>
       <div className="right">
-        <PageSortHeader count={res.data.full_count} />
+        <PageSortHeader count={fullCount} />
         <div className="down">
-          {goods.length === 0 ? (
+          {errorMessage && (
+            <div className='error_message' style={{ color: 'red' }}>
+              {errorMessage}
+            </div>
+          )}
+          {!errorMessage && goods.length === 0 ? (
             <div>
-            <div className="title_section">Нет товаров с заданными условиями</div>
-            <Link href="/catalog/">Сбросить условия отбора</Link>
+              <div className="title_section">Нет товаров с заданными условиями</div>
+              <Link href="/catalog/">Сбросить условия отбора</Link>
             </div>
           ) : (
             ''
@@ -45,7 +62,7 @@ export default async function Page({ searchParams }: { searchParams: { [key: str
             </Link>
           ))}
         </div>
-        <PageSortHeader count={res.data.full_count} />
+        <PageSortHeader count={fullCount} />
       </div>
       {/* <div className="top">
         <div className="pagination">
