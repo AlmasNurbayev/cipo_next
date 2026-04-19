@@ -9,6 +9,9 @@ const nextConfig = {
         hostname: 'cipo_backend_server',
       },
       {
+        hostname: 'localhost',
+      },
+      {
         protocol: 'http',
         hostname: 'cipo-site-server',
         pathname: '/news_images/**',

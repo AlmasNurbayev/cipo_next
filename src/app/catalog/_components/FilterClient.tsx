@@ -20,6 +20,7 @@ export default function FilterClient() {
   const [lists, setLists] = useState<any>();
   const [minPrice, setMinPrice] = useState(searchParams.get('minPrice'));
   const [maxPrice, setMaxPrice] = useState(searchParams.get('maxPrice'));
+  const [minQnt, setMinQnt] = useState(searchParams.get('minQnt'));
   const [sort, setSort] = useState(searchParams.get('sort') || '');
   const [pg, setPg] = useState(
     searchParams.get('product_group')
@@ -65,6 +66,8 @@ export default function FilterClient() {
     else searchParams.delete('minPrice');
     if (maxPrice) searchParams.set('maxPrice', maxPrice);
     else searchParams.delete('maxPrice');
+    if (minQnt && Number(minQnt) > 1) searchParams.set('minQnt', minQnt);
+    else searchParams.delete('minQnt');
 
     if (search_name !== '') {
       searchParams.set('search_name', search_name);
@@ -81,7 +84,7 @@ export default function FilterClient() {
     // если изменилось что-то в фильтрах - нужно сбрасывать пагинацию
     searchParams.set('page', '1');
     searchParams.set('skip', '0');
-  }, [pg, size, vm, search_name, minPrice, maxPrice, sort]);
+  }, [pg, size, vm, search_name, minPrice, maxPrice, sort, minQnt]);
 
   function apply() {
     router.push(`${pathname}?${searchParams}`, { scroll: false });
@@ -101,6 +104,10 @@ export default function FilterClient() {
       setMinPrice(String(value[0]));
       setMaxPrice(String(value[1]));
     }
+  }
+
+  function changeMinQnt(value: number | number[]) {
+    setMinQnt(String(value));
   }
 
   // function handleProductGroup(event: ChangeEvent<HTMLInputElement>) {
@@ -161,7 +168,7 @@ export default function FilterClient() {
 
   return (
     <div className="filter_container" style={showFilter ? {} : {}}>
-      <form className="filter_form"  style={showFilter ? {display: 'flex'} : {display: 'none'}}>
+      <form className="filter_form" style={showFilter ? { display: 'flex' } : { display: 'none' }}>
         <Button height={40} type="button" onPress={apply}>
           <span className="button_title">Применить</span>
         </Button>
@@ -276,6 +283,22 @@ export default function FilterClient() {
           <div className="tooltip">
             {minPrice ? 'от ' + Number(minPrice).toLocaleString('ru') : ''}
             {maxPrice ? ' до ' + Number(maxPrice).toLocaleString('ru') : ''}
+          </div>
+        </div>
+
+        <div className="price">
+          <div className="title">Мин. кол-во</div>
+          <Slider
+            allowCross={false}
+            min={1}
+            max={10}
+            value={minQnt ? Number(minQnt) : 1}
+            // defaultValue={[1000, 80000]}
+            onChange={changeMinQnt}
+            style={{ width: '100%' }}
+          ></Slider>
+          <div className="tooltip">
+            {minQnt ? ' ' + Number(minQnt).toLocaleString('ru') : ''}
           </div>
         </div>
         <Button height={40} type="button" onPress={apply}>
