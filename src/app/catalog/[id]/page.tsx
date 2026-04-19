@@ -109,6 +109,7 @@ export default async function GoodPage({ params }: { params: { id: string } }) {
                   htmlFor={'accordion-' + index}
                 >
                   <h4>{'размер: ' + e.size_name_1c + ', цена: ' + e.sum.toLocaleString('ru-RU') + ' ₸'}</h4> 
+                  <h5>{'наличие: ' + e.qnt + ' шт.'}</h5>
                 </label>
                 <div className="accordion-content">
                   <div
