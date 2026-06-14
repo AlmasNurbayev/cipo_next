@@ -5,9 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="left">
-        <p>2024 г. - ИП Incore</p>
-        <p>Нурбаев Алмас Муратович</p>
-        <p>БИН/ИИН: 800727301256</p>
+        <p>2024 г.</p>
         <p>Cipo ® - зарегистрированная торговая марка </p>
       </div>
       <address className="center">
