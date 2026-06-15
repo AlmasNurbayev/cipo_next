@@ -15,7 +15,7 @@ export default function CardProductVertical({ item }: { item: IproductOnce }) {
         />
       </div>
       <div className="card-down">
-        {item.name}
+        {item.vid_modeli_name + ' ' + item.name}
         <div className="card-size">
           {item.qnt_price.map((qnt) => (
             <div className="card-sizes" key={item.product_id + qnt.size}>
@@ -24,7 +24,7 @@ export default function CardProductVertical({ item }: { item: IproductOnce }) {
           ))}
         </div>
         <div className="price">
-        {item.sum.toLocaleString('ru-RU') + ' ₸'}
+          {item.sum.toLocaleString('ru-RU') + ' ₸'}
         </div>
       </div>
     </div>

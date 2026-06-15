@@ -47,7 +47,7 @@ export default async function GoodPage({ params }: { params: { id: string } }) {
   return (
     <main className="good _container">
       <div className="title">
-        <h1>{product.vid_modeli ? product.vid_modeli.name_1c : '' + ' ' + product.name}</h1>
+        <h1>{product.vid_modeli ? product.vid_modeli.name_1c + ' ' + product.name : product.name}</h1>
       </div>
       <div className="wrapper">
         <div className="left">
