@@ -31,7 +31,7 @@ export default function CardProductNew({ item }: { item: IproductNew }) {
         height={188}
       ></Image>
       <div className="right">
-        <div>{item.name}</div>
+        <div>{item.vid_modeli_name + ' ' + item.name}</div>
         <div>
           Pазмеры в наличии:
           <div className="sizes">

@@ -13,14 +13,14 @@ export default function CardProductHorizontal({ item }: { item: IproductNew }) {
         height={188}
       ></Image>
       <div className="right">
-        <div>{item.name}</div>
+        <div>{item.vid_modeli_name + ' ' + item.name}</div>
         <div>
           Pазмеры в наличии:
-        <div className='sizes'>
-          {item.qnt_price.map((qnt) => (
-            <div className='size' key={item.product_id + qnt.size}>{qnt.size}</div>
-          ))}
-        </div>
+          <div className='sizes'>
+            {item.qnt_price.map((qnt) => (
+              <div className='size' key={item.product_id + qnt.size}>{qnt.size}</div>
+            ))}
+          </div>
 
         </div>
         <div className='price'>{item.sum.toLocaleString('ru-RU') + ' ₸'}</div>
