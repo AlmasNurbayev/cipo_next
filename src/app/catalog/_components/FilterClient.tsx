@@ -21,6 +21,9 @@ export default function FilterClient() {
   const [minPrice, setMinPrice] = useState(searchParams.get('minPrice'));
   const [maxPrice, setMaxPrice] = useState(searchParams.get('maxPrice'));
   const [minQnt, setMinQnt] = useState(searchParams.get('minQnt'));
+  const [kaspiInSale, setKaspiInSale] = useState(
+    searchParams.get('kaspi_in_sale') === 'true',
+  );
   const [sort, setSort] = useState(searchParams.get('sort') || '');
   const [pg, setPg] = useState(
     searchParams.get('product_group')
@@ -68,6 +71,8 @@ export default function FilterClient() {
     else searchParams.delete('maxPrice');
     if (minQnt && Number(minQnt) > 1) searchParams.set('minQnt', minQnt);
     else searchParams.delete('minQnt');
+    if (kaspiInSale) searchParams.set('kaspi_in_sale', 'true');
+    else searchParams.delete('kaspi_in_sale');
 
     if (search_name !== '') {
       searchParams.set('search_name', search_name);
@@ -84,7 +89,7 @@ export default function FilterClient() {
     // если изменилось что-то в фильтрах - нужно сбрасывать пагинацию
     searchParams.set('page', '1');
     searchParams.set('skip', '0');
-  }, [pg, size, vm, search_name, minPrice, maxPrice, sort, minQnt]);
+  }, [pg, size, vm, search_name, minPrice, maxPrice, sort, minQnt, kaspiInSale]);
 
   function apply() {
     router.push(`${pathname}?${searchParams}`, { scroll: false });
@@ -301,6 +306,16 @@ export default function FilterClient() {
             {minQnt ? ' ' + Number(minQnt).toLocaleString('ru') : ''}
           </div>
         </div>
+
+        <fieldset className="kaspi">
+          <Checkbox
+            label="Только товары Kaspi"
+            checked={kaspiInSale}
+            value="kaspi_in_sale"
+            onPress={() => setKaspiInSale((prev) => !prev)}
+          ></Checkbox>
+        </fieldset>
+
         <Button height={40} type="button" onPress={apply}>
           <span className="button_title">Применить</span>
         </Button>
